@@ -9,6 +9,7 @@ import Education from "./components/sections/Education";
 import StartCanvas from "./components/canvas/Stars";
 import Projects from "./components/sections/Projects";
 import Contact from "./components/sections/Contact";
+import Certificates from "./components/sections/Certificates"; // Importing Certificates
 import Footer from "./components/sections/Footer";
 
 const Body = styled.div`
@@ -50,6 +51,7 @@ function App() {
             <Projects />
             <Wrapper>
               <Education />
+              <Certificates /> {/* Adding Certificates section after Education */}
               <Contact />
             </Wrapper>
             <Footer />
