@@ -26,6 +26,7 @@ const NavbarContainer = styled.div`
   justify-content: space-between;
   font-size: 1rem;
 `;
+
 const NavLogo = styled(LinkR)`
   width: 80%;
   padding: 0 6px;
@@ -118,8 +119,7 @@ const MobileMenu = styled.ul`
   right: 0;
 
   transition: all 0.6s ease-in-out;
-  transform: ${({ isOpen }) =>
-    isOpen ? "translateY(0)" : "translateY(-100%)"};
+  transform: ${({ isOpen }) => (isOpen ? "translateY(0)" : "translateY(-100%)")};
   border-radius: 0 0 20px 20px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
   opacity: ${({ isOpen }) => (isOpen ? "100%" : "0")};
@@ -128,44 +128,76 @@ const MobileMenu = styled.ul`
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isAudioStarted, setIsAudioStarted] = useState(false);
   const theme = useTheme();
+  const [currentSection, setCurrentSection] = useState('About'); // Track current section
+
+  // Function to handle section change
+  const handleSectionChange = (section) => {
+    setCurrentSection(section);
+    const hoverAudio = document.getElementById("hover-audio");
+    const vangelisAudio = document.getElementById("vangelis-audio");
+
+    // Play hover audio for all sections except About
+    if (section !== 'About') {
+      hoverAudio.play();
+    }
+
+    // Play Vangelis audio for specific sections
+    if (section === 'Projects' || section === 'Certificates') {
+      vangelisAudio.play();
+    }
+  };
+
+  // Function to start audio playback after user interaction
+  const startAudioPlayback = () => {
+    const backgroundAudio = document.getElementById("background-audio");
+
+    // Play background audio on loop
+    backgroundAudio.play();
+    backgroundAudio.loop = true;
+
+    // Hide the button after starting the audio
+    setIsAudioStarted(true);
+  };
+
+  // Function to play bell audio when GitHub button is clicked
+  const playBellAudio = () => {
+    const bellAudio = document.getElementById("bell-audio");
+    bellAudio.play();
+  };
+
   return (
     <Nav>
       <NavbarContainer>
-        <NavLogo to="/">GeeksForGeeks</NavLogo>
+        <NavLogo to="/">Portfolio</NavLogo>
 
         <MobileIcon onClick={() => setIsOpen(!isOpen)}>
           <MenuRounded style={{ color: "inherit" }} />
         </MobileIcon>
 
         <NavItems>
-          <NavLink href="#About">About</NavLink>
-          <NavLink href="#Skills">Skills</NavLink>
-          <NavLink href="#Experience">Experience</NavLink>
-          <NavLink href="#Projects">Projects</NavLink>
-          <NavLink href="#Education">Education</NavLink>
+          <NavLink onClick={() => handleSectionChange('About')} href="#About">About</NavLink>
+          <NavLink onClick={() => handleSectionChange('Skills')} href="#Skills">Skills</NavLink>
+          <NavLink onClick={() => handleSectionChange('Experience')} href="#Experience">Experience</NavLink>
+          <NavLink onClick={() => handleSectionChange('Projects')} href="#Projects">Projects</NavLink>
+          <NavLink onClick={() => handleSectionChange('Certificates')} href="#Certificates">Certificates</NavLink>
+          <NavLink onClick={() => handleSectionChange('Education')} href="#Education">Education</NavLink>
         </NavItems>
 
         {isOpen && (
           <MobileMenu isOpen={isOpen}>
-            <NavLink onClick={() => setIsOpen(!isOpen)} href="#About">
-              About
-            </NavLink>
-            <NavLink onClick={() => setIsOpen(!isOpen)} href="#Skills">
-              Skills
-            </NavLink>
-            <NavLink onClick={() => setIsOpen(!isOpen)} href="#Experience">
-              Experience
-            </NavLink>
-            <NavLink onClick={() => setIsOpen(!isOpen)} href="#Projects">
-              Projects
-            </NavLink>
-            <NavLink onClick={() => setIsOpen(!isOpen)} href="#Education">
-              Education
-            </NavLink>
+            <NavLink onClick={() => handleSectionChange('About')} href="#About">About</NavLink>
+            <NavLink onClick={() => handleSectionChange('Skills')} href="#Skills">Skills</NavLink>
+            <NavLink onClick={() => handleSectionChange('Experience')} href="#Experience">Experience</NavLink>
+            <NavLink onClick={() => handleSectionChange('Projects')} href="#Projects">Projects</NavLink>
+            <NavLink onClick={() => handleSectionChange('Certificates')} href="#Certificates">Certificates</NavLink>
+            <NavLink onClick={() => handleSectionChange('Education')} href="#Education">Education</NavLink>
+            
             <GithubButton
               href={Bio.github}
               target="_Blank"
+              onClick={playBellAudio}
               style={{
                 background: theme.primary,
                 color: theme.text_primary,
@@ -177,11 +209,22 @@ const Navbar = () => {
         )}
 
         <ButtonContainer>
-          <GithubButton href={Bio.github} target="_Blank">
+          <GithubButton href={Bio.github} target="_Blank" onClick={playBellAudio}>
             Github Profile
           </GithubButton>
         </ButtonContainer>
       </NavbarContainer>
+
+      {/* Button to start audio playback */}
+      {!isAudioStarted && (
+        <button onClick={startAudioPlayback}>Start Audio</button>
+      )}
+
+      {/* Audio Elements */}
+      <audio id="hover-audio" src="/audio/hover1.mp3" />
+      <audio id="vangelis-audio" src="/audio/Vangelis.mp3" />
+      <audio id="background-audio" src="/audio/background.mp3" loop />
+      <audio id="bell-audio" src="/audio/bell2.mp3" />
     </Nav>
   );
 };
