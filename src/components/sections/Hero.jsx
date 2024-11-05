@@ -229,7 +229,7 @@ const Hero = () => {
             <HeroLeftContainer>
               <motion.div {...headTextAnimation}>
                 <Title>
-                  Hi, I am <br /> {Bio.name}
+                  Hi,I am <br /> {Bio.name}
                 </Title>
                 <TextLoop>
                   I am a
@@ -256,7 +256,7 @@ const Hero = () => {
             <HeroRightContainer>
               <motion.div {...headContentAnimation}>
                 <Tilt>
-                  <Img src={HeroImg} alt="Rishav Chanda" />
+                  <Img src={HeroImg} alt="Shashwat Mishra" />
                 </Tilt>
               </motion.div>
             </HeroRightContainer>

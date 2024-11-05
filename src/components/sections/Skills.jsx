@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "styled-components";
-import { skills } from "../../data/constants";
+import { skills } from "../../data/constants"; // Ensure this data structure is correct
 import { Tilt } from "react-tilt";
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  justify-contnet: center;
-  position: rlative;
+  justify-content: center; // Fixed typo from 'justify-contnet' to 'justify-content'
+  position: relative; // Fixed typo from 'rlative' to 'relative'
   z-index: 1;
   align-items: center;
 `;
@@ -25,6 +25,7 @@ const Wrapper = styled.div`
     flex-direction: column;
   }
 `;
+
 const Title = styled.div`
   font-size: 52px;
   text-align: center;
@@ -36,6 +37,7 @@ const Title = styled.div`
     font-size: 32px;
   }
 `;
+
 const Desc = styled.div`
   font-size: 18px;
   text-align: center;
@@ -67,7 +69,6 @@ const Skill = styled.div`
     max-width: 400px;
     padding: 10px 36px;
   }
-
   @media (max-width: 500px) {
     max-width: 330px;
     padding: 10px 36px;
@@ -89,6 +90,7 @@ const SkillList = styled.div`
   gap: 12px;
   margin-bottom: 20px;
 `;
+
 const SkillItem = styled.div`
   font-size: 16px;
   font-weight: 400;
@@ -110,37 +112,39 @@ const SkillItem = styled.div`
     padding: 6px 12px;
   }
 `;
+
 const SkillImage = styled.img`
   width: 24px;
   height: 24px;
 `;
 
 const Skills = () => {
+  // Check if skills data is available
+  if (!Array.isArray(skills) || skills.length === 0) {
+    return null; // If no skills, render nothing
+  }
+
   return (
     <Container id="Skills">
       <Wrapper>
         <Title>Skills</Title>
-        <Desc
-          style={{
-            marginBottom: "40px",
-          }}
-        >
-          Here are some of my skills on which I have been working on for the
-          past 3 years.
+        <Desc style={{ marginBottom: "40px" }}>
+          Here are some of my skills on which I have been working for the past 3 years.
         </Desc>
 
         <SkillsContainer>
           {skills.map((skill, index) => (
-            <Tilt>
-              <Skill key={`skill-${index}`}>
+            <Tilt key={`skill-${index}`}>
+              <Skill>
                 <SkillTitle>{skill.title}</SkillTitle>
                 <SkillList>
-                  {skill.skills.map((item, index_x) => (
-                    <SkillItem key={`skill-x-${index_x}`}>
-                      <SkillImage src={item.image} />
-                      {item.name}
-                    </SkillItem>
-                  ))}
+                  {Array.isArray(skill.skills) && skill.skills.length > 0 &&
+                    skill.skills.map((item, index_x) => (
+                      <SkillItem key={`skill-x-${index_x}`}>
+                        {item.image && <SkillImage src={item.image} alt={item.name} />}
+                        {item.name}
+                      </SkillItem>
+                    ))}
                 </SkillList>
               </Skill>
             </Tilt>

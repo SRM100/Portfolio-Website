@@ -101,8 +101,7 @@ const Projects = () => {
             marginBottom: "40px",
           }}
         >
-          I have worked on a wide range of projects. From web apps to android
-          apps. Here are some of my projects.
+          I have worked on a wide range of projects. From Power-BI to Robotics. Here are some of my projects.
         </Desc>
 
         <ToggleButtonGroup>
@@ -114,17 +113,10 @@ const Projects = () => {
           </ToggleButton>
           <Divider />
           <ToggleButton
-            active={toggle === "web app"}
-            onClick={() => setToggle("web app")}
+            active={toggle === "Power BI"}
+            onClick={() => setToggle("Power BI")}
           >
-            WEB APP"S
-          </ToggleButton>
-          <Divider />
-          <ToggleButton
-            active={toggle === "android app"}
-            onClick={() => setToggle("android app")}
-          >
-            ANDROID APP'S
+            POWERBI
           </ToggleButton>
           <Divider />
           <ToggleButton
@@ -132,6 +124,27 @@ const Projects = () => {
             onClick={() => setToggle("machine learning")}
           >
             MACHINE LEARNING
+          </ToggleButton>
+          <Divider />
+          <ToggleButton
+            active={toggle === "Data-Science"}
+            onClick={() => setToggle("Data-Science")}
+          >
+            DATA-SCIENCE
+          </ToggleButton>
+          <Divider />
+          <ToggleButton
+            active={toggle === "Generative-AI"}
+            onClick={() => setToggle("Generative-AI")}
+          >
+            GENERATIVE-AI
+          </ToggleButton>
+          <Divider />
+          <ToggleButton
+            active={toggle === "Robotics"}
+            onClick={() => setToggle("Robotics")}
+          >
+            ROBOTICS
           </ToggleButton>
         </ToggleButtonGroup>
 
