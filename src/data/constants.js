@@ -2,6 +2,7 @@ export const Bio = {
   name: "Shashwat Mishra",
   roles: [
     "Robotics Engineer",
+    "AI Enthusiast",
     "Data Scientist Enthusiast",
     "Machine Learning Enthusiast",
     "Programmer",
@@ -25,10 +26,7 @@ export const skills = [
         name: "React Js",
         image:
           "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K",
-          },
-        ],
       },
-      
       {
         name: "HTML",
         image: "https://www.w3.org/html/logo/badge/html5-badge-h-solo.png",
@@ -43,7 +41,8 @@ export const skills = [
         image:
           "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/800px-JavaScript-logo.png",
       },
-
+    ],
+  },
   {
     title: "Backend",
     skills: [
@@ -51,7 +50,6 @@ export const skills = [
         name: "Node Js",
         image: "https://nodejs.org/static/images/logo.svg",
       },
-      
       {
         name: "Python",
         image:
@@ -111,7 +109,7 @@ export const skills = [
           "https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg",
       },
       {
-        name: "Tenserflow",
+        name: "Tensorflow",
         image:
           "https://static-00.iconduck.com/assets.00/tensorflow-icon-1911x2048-1m2s54vn.png",
       },
@@ -131,7 +129,7 @@ export const skills = [
           "https://assets.stickpng.com/images/63c2e4c9c4baad4ce22bf9ef.png",
       },
       {
-        name: "Sk Learn Kit",
+        name: "Scikit-learn",
         image:
           "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Scikit_learn_logo_small.svg/2560px-Scikit_learn_logo_small.svg.png",
       },
@@ -160,7 +158,6 @@ export const skills = [
         image:
           "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/512px-Visual_Studio_Code_1.35_icon.svg.png?20210804221519",
       },
-      
       {
         name: "Figma",
         image:
@@ -169,6 +166,7 @@ export const skills = [
     ],
   },
 ];
+
 
 export const experiences = [
   {
@@ -241,10 +239,8 @@ export const experiences = [
 export const education = [
   {
     id: 0,
-    img: "https://www.google.com/imgres?q=parul%20university%20naac%20a%2B%2B&imgurl=https%3A%2F%2Flookaside.fbsbx.com%2Flookaside%2Fcrawler%2Fmedia%2F%3Fmedia_id%3D100068667069073&imgrefurl=https%3A%2F%2Fwww.facebook.com%2Fpunepalregionaloffice%2F&docid=YL8kzNA4bID5yM&tbnid=40yf_KfmFFPOBM&vet=12ahUKEwjK34Cv07-JAxXFXmwGHVJQG-gQM3oECGUQAA..i&w=960&h=960&hcb=2&ved=2ahUKEwjK34Cv07-JAxXFXmwGHVJQG-gQM3oECGUQAA",
     school: "Parul University , Vadodara",
     date: "August 2024 - June 2026",
-
     desc: "I am currently Pursuing a Master's degree in Robotics and Automation Engineering Parul Institute of Technology, Vadodara. ",
     degree: "Master of Technology - MTech, Robotics and Automation Engineering",
   },
@@ -252,7 +248,6 @@ export const education = [
 
   {
     id: 1,
-    img: "https://www.google.com/imgres?q=parul%20university%20naac%20a%2B%2B&imgurl=https%3A%2F%2Flookaside.fbsbx.com%2Flookaside%2Fcrawler%2Fmedia%2F%3Fmedia_id%3D100068667069073&imgrefurl=https%3A%2F%2Fwww.facebook.com%2Fpunepalregionaloffice%2F&docid=YL8kzNA4bID5yM&tbnid=40yf_KfmFFPOBM&vet=12ahUKEwjK34Cv07-JAxXFXmwGHVJQG-gQM3oECGUQAA..i&w=960&h=960&hcb=2&ved=2ahUKEwjK34Cv07-JAxXFXmwGHVJQG-gQM3oECGUQAA",
     school: "Parul University , Vadodara",
     date: "June 2020 - June 2024",
     grade: "First Class with Distinction",
@@ -261,7 +256,6 @@ export const education = [
   },
   {
     id: 2,
-    img: "https://www.google.com/imgres?q=ambe%20school%20logo&imgurl=https%3A%2F%2Flookaside.fbsbx.com%2Flookaside%2Fcrawler%2Fmedia%2F%3Fmedia_id%3D100084810623023&imgrefurl=https%3A%2F%2Fwww.facebook.com%2Fambeschool.cbse%2F&docid=hH_R92E6JV0Q7M&tbnid=oc3meyvGCkpnOM&vet=12ahUKEwj0nPuS17-JAxXObPUHHb1QFq4QM3oECBcQAA..i&w=560&h=352&hcb=2&ved=2ahUKEwj0nPuS17-JAxXObPUHHb1QFq4QM3oECBcQAA",
     school: "Ambe School, Vadodara",
     date: "Apr 2019 - Apr 2020",
     grade: "First Class",
@@ -270,7 +264,6 @@ export const education = [
   },
   {
     id: 3,
-    img: "https://www.google.com/imgres?q=tree%20house%20high%20school%20logo&imgurl=https%3A%2F%2Ftreehousehighschool.com%2Fwp-content%2Fuploads%2F2023%2F09%2F1024.png&imgrefurl=https%3A%2F%2Ftreehousehighschool.com%2F&docid=vn8rT4sPEoYNuM&tbnid=b1PBSQAaePzX_M&vet=12ahUKEwint-e117-JAxVFUGcHHQdHDwgQM3oECBYQAA..i&w=1024&h=1024&hcb=2&ved=2ahUKEwint-e117-JAxVFUGcHHQdHDwgQM3oECBYQAA",
     school: "Tree House High School, Vadodara",
     date: "Apr 2017 - Apr 2019",
     grade: "First Class",
@@ -278,6 +271,29 @@ export const education = [
     degree: "CBSE(X), Science with Computer",
   },
 ];
+
+export const certificates = [
+  {
+    title: "Machine Learning Specialization",
+    institution: "Coursera",
+    category: "AI/ML",
+    link: "https://www.coursera.org/learn/machine-learning",
+  },
+  {
+    title: "Data Science Certification",
+    institution: "edX",
+    category: "Data Science",
+    link: "https://www.edx.org/professional-certificate/data-science",
+  },
+  {
+    title: "Full Stack Web Development",
+    institution: "Udemy",
+    category: "Web Development",
+    link: "https://www.udemy.com/course/the-complete-web-development-bootcamp/",
+  },
+  // Add more certificates as needed
+];
+
 
 export const projects = [
   {
@@ -293,7 +309,7 @@ export const projects = [
       "CSV",
       "Excel",
     ],
-    category: "web app",
+    category: "Power BI",
     github: "git@github.com:SHASHWAT-MISHRA-997/SM-Ecommerce-Sales-PowerBi-Dashboard-Project.git",
   },
 
