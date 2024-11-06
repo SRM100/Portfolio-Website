@@ -1,6 +1,5 @@
 import React, { useRef } from "react";
 import styled from "styled-components";
-import emailjs from "@emailjs/browser";
 
 const Container = styled.div`
   display: flex;
@@ -116,22 +115,8 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    emailjs
-      .sendForm(
-        "service_tox7kqs",
-        "template_nv7k7mj",
-        form.current,
-        "SybVGsYS52j2TfLbi"
-      )
-      .then(
-        (result) => {
-          alert("Message Sent");
-          form.current.reset();
-        },
-        (error) => {
-          alert(error.text);
-        }
-      );
+    // Netlify will handle the form submission
+    form.current.submit();
   };
 
   return (
@@ -154,8 +139,8 @@ const Contact = () => {
         >
           <input type="hidden" name="form-name" value="contact" />
           <ContactTitle>Email Me 🚀</ContactTitle>
-          <ContactInput placeholder="Your Email" name="from_email" type="email" />
-          <ContactInput placeholder="Your Name" name="from_name" type="text" />
+          <ContactInput placeholder="Your Email" name="email" type="email" />
+          <ContactInput placeholder="Your Name" name="name" type="text" />
           <ContactInput placeholder="Subject" name="subject" type="text" />
           <ContactInputMessage placeholder="Message" name="message" rows={4} />
           <ContactButton type="submit">Send</ContactButton>
