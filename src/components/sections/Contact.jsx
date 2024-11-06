@@ -96,7 +96,7 @@ const ContactInputMessage = styled.textarea`
   }
 `;
 
-const ContactButton = styled.input`
+const ContactButton = styled.button`
   width: 100%;
   text-decoration: none;
   text-align: center;
@@ -108,6 +108,7 @@ const ContactButton = styled.input`
   color: ${({ theme }) => theme.text_primary};
   font-size: 18px;
   font-weight: 600;
+  cursor: pointer;
 `;
 
 const Contact = () => {
@@ -128,7 +129,7 @@ const Contact = () => {
           form.current.reset();
         },
         (error) => {
-          alert(error);
+          alert(error.text);
         }
       );
   };
@@ -157,7 +158,7 @@ const Contact = () => {
           <ContactInput placeholder="Your Name" name="from_name" type="text" />
           <ContactInput placeholder="Subject" name="subject" type="text" />
           <ContactInputMessage placeholder="Message" name="message" rows={4} />
-          <ContactButton type="submit" value="Send" />
+          <ContactButton type="submit">Send</ContactButton>
         </ContactForm>
       </Wrapper>
     </Container>
