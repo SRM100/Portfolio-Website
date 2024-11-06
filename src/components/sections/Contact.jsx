@@ -1,47 +1,142 @@
-import React, { useState } from "react";
+import React, { useRef } from "react";
 import styled from "styled-components";
+import emailjs from "@emailjs/browser";
 
 const Container = styled.div`
-  /* Your styles here */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  align-items: center;
 `;
 
 const Wrapper = styled.div`
-  /* Your styles here */
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1100px;
+  gap: 12px;
+  @media (max-width: 960px) {
+    flex-direction: column;
+  }
 `;
 
-const Desc = styled.p`
-  /* Your styles here */
+const Title = styled.div`
+  font-size: 52px;
+  text-align: center;
+  font-weight: 600;
+  margin-top: 20px;
+  color: ${({ theme }) => theme.text_primary};
+  @media (max-width: 768px) {
+    margin-top: 12px;
+    font-size: 32px;
+  }
+`;
+
+const Desc = styled.div`
+  font-size: 18px;
+  text-align: center;
+  font-weight: 600;
+  color: ${({ theme }) => theme.text_secondary};
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
 `;
 
 const ContactForm = styled.form`
-  /* Your styles here */
+  width: 95%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(17, 25, 40, 0.83);
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  padding: 32px;
+  border-radius: 12px;
+  box-shadow: rgba(23, 92, 230, 0.1) 0px 4px 24px;
+  margin-top: 28px;
+  gap: 12px;
 `;
 
-const ContactTitle = styled.h2`
-  /* Your styles here */
+const ContactTitle = styled.div`
+  font-size: 28px;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: ${({ theme }) => theme.text_primary};
 `;
 
 const ContactInput = styled.input`
-  /* Your styles here */
+  flex: 1;
+  background-color: transparent;
+  border: 1px solid ${({ theme }) => theme.text_secondary + 50};
+  outline: none;
+  font-size: 18px;
+  color: ${({ theme }) => theme.text_primary};
+  border-radius: 12px;
+  padding: 12px 16px;
+  &:focus {
+    border: 1px solid ${({ theme }) => theme.primary};
+  }
 `;
 
 const ContactInputMessage = styled.textarea`
-  /* Your styles here */
+  flex: 1;
+  background-color: transparent;
+  border: 1px solid ${({ theme }) => theme.text_secondary + 50};
+  outline: none;
+  font-size: 18px;
+  color: ${({ theme }) => theme.text_primary};
+  border-radius: 12px;
+  padding: 12px 16px;
+  &:focus {
+    border: 1px solid ${({ theme }) => theme.primary};
+  }
 `;
 
 const ContactButton = styled.input`
-  /* Your styles here */
+  width: 100%;
+  text-decoration: none;
+  text-align: center;
+  background: hsla(271, 100%, 50%, 1);
+  padding: 13px 16px;
+  margin-top: 2px;
+  border-radius: 12px;
+  border: none;
+  color: ${({ theme }) => theme.text_primary};
+  font-size: 18px;
+  font-weight: 600;
 `;
 
 const Contact = () => {
+  const form = useRef();
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Your form submission logic here
+    emailjs
+      .sendForm(
+        "service_tox7kqs",
+        "template_nv7k7mj",
+        form.current,
+        "SybVGsYS52j2TfLbi"
+      )
+      .then(
+        (result) => {
+          alert("Message Sent");
+          form.current.reset();
+        },
+        (error) => {
+          alert(error);
+        }
+      );
   };
 
   return (
-    <Container>
+    <Container id="Education">
       <Wrapper>
+        <Title>Contact</Title>
         <Desc
           style={{
             marginBottom: "40px",
@@ -54,11 +149,12 @@ const Contact = () => {
           method="POST"
           data-netlify="true"
           onSubmit={handleSubmit}
+          ref={form}
         >
           <input type="hidden" name="form-name" value="contact" />
           <ContactTitle>Email Me 🚀</ContactTitle>
-          <ContactInput placeholder="Your Email" name="email" type="email" />
-          <ContactInput placeholder="Your Name" name="name" type="text" />
+          <ContactInput placeholder="Your Email" name="from_email" type="email" />
+          <ContactInput placeholder="Your Name" name="from_name" type="text" />
           <ContactInput placeholder="Subject" name="subject" type="text" />
           <ContactInputMessage placeholder="Message" name="message" rows={4} />
           <ContactButton type="submit" value="Send" />
