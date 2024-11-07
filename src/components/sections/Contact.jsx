@@ -1,6 +1,8 @@
 import React, { useRef } from "react";
 import styled from "styled-components";
+import '@google/model-viewer';
 
+// Styled Components
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -14,13 +16,13 @@ const Wrapper = styled.div`
   position: relative;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  flex-direction: column;
+  align-items: flex-start;
+  flex-direction: row;
   width: 100%;
   max-width: 1100px;
-  gap: 12px;
+  gap: 40px; /* space between form and model viewer */
   @media (max-width: 960px) {
-    flex-direction: column;
+    flex-direction: column; /* Stack vertically on smaller screens */
   }
 `;
 
@@ -110,6 +112,7 @@ const ContactButton = styled.button`
   cursor: pointer;
 `;
 
+// Main Contact Component
 const Contact = () => {
   const form = useRef();
 
@@ -122,29 +125,47 @@ const Contact = () => {
   return (
     <Container id="Education">
       <Wrapper>
-        <Title>Contact</Title>
-        <Desc
-          style={{
-            marginBottom: "40px",
+        <div>
+          <Title>Contact</Title>
+          <Desc style={{ marginBottom: "40px" }}>
+            Feel free to reach out to me for any questions or opportunities!
+          </Desc>
+
+          <ContactForm
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            onSubmit={handleSubmit}
+            ref={form}
+          >
+            <input type="hidden" name="form-name" value="contact" />
+            <ContactTitle>Email Me 🚀</ContactTitle>
+            <ContactInput placeholder="Your Email" name="email" type="email" />
+            <ContactInput placeholder="Your Name" name="name" type="text" />
+            <ContactInput placeholder="Subject" name="subject" type="text" />
+            <ContactInputMessage placeholder="Message" name="message" rows={4} />
+            <ContactButton type="submit">Send</ContactButton>
+          </ContactForm>
+        </div>
+
+        {/* Model Viewer */}
+        <model-viewer 
+          class="robo"
+          src="./models/robot_playground/scene.gltf" 
+          camera-controls
+          disable-pan
+          disable-zoom
+          interaction-prompt="none"
+          field-of-view="10deg"
+          autoplay
+          style={{ 
+            width: "800px", 
+            height: "800px", 
+            maxWidth: "100%", 
+            display: "block"  /* Ensure the model is visible */
           }}
-        >
-          Feel free to reach out to me for any questions or opportunities!
-        </Desc>
-        <ContactForm
-          name="contact"
-          method="POST"
-          data-netlify="true"
-          onSubmit={handleSubmit}
-          ref={form}
-        >
-          <input type="hidden" name="form-name" value="contact" />
-          <ContactTitle>Email Me 🚀</ContactTitle>
-          <ContactInput placeholder="Your Email" name="email" type="email" />
-          <ContactInput placeholder="Your Name" name="name" type="text" />
-          <ContactInput placeholder="Subject" name="subject" type="text" />
-          <ContactInputMessage placeholder="Message" name="message" rows={4} />
-          <ContactButton type="submit">Send</ContactButton>
-        </ContactForm>
+        ></model-viewer>
+
       </Wrapper>
     </Container>
   );
