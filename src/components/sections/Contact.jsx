@@ -75,6 +75,8 @@ const Container = styled.div`
   position: relative;
   z-index: 1;
   align-items: center;
+  padding: 20px;
+  background-color: rgba(17, 25, 40, 0.83);
 `;
 
 const Wrapper = styled.div`
@@ -91,23 +93,23 @@ const Wrapper = styled.div`
   }
 `;
 
-const Title = styled.div`
+const Title = styled.h1`
   font-size: 52px;
   text-align: center;
   font-weight: 600;
   margin-top: 20px;
-  color: ${({ theme }) => theme.text_primary};
+  color: #ffffff;
   @media (max-width: 768px) {
     margin-top: 12px;
     font-size: 32px;
   }
 `;
 
-const Desc = styled.div`
+const Desc = styled.p`
   font-size: 18px;
   text-align: center;
   font-weight: 600;
-  color: ${({ theme }) => theme.text_secondary};
+  color: #cccccc;
   @media (max-width: 768px) {
     font-size: 16px;
   }
@@ -125,56 +127,80 @@ const ContactForm = styled.form`
   box-shadow: rgba(23, 92, 230, 0.1) 0px 4px 24px;
   margin-top: 28px;
   gap: 12px;
+  animation: ${slideInEffect} 1s ease-out forwards;
+
+  &:hover {
+    animation: ${pulseEffect} 1.5s infinite, ${shakeEffect} 1s ease infinite;
+  }
 `;
 
 const ContactTitle = styled.div`
   font-size: 28px;
   margin-bottom: 6px;
   font-weight: 600;
-  color: ${({ theme }) => theme.text_primary};
+  color: #ffffff;
 `;
 
 const ContactInput = styled.input`
   flex: 1;
   background-color: transparent;
-  border: 1px solid ${({ theme }) => theme.text_secondary + 50};
+  border: 1px solid rgba(255, 255, 255, 0.3);
   outline: none;
   font-size: 18px;
-  color: ${({ theme }) => theme.text_primary};
+  color: #ffffff;
   border-radius: 12px;
   padding: 12px 16px;
   &:focus {
-    border: 1px solid ${({ theme }) => theme.primary};
+    border: 1px solid #007bff;
   }
 `;
 
 const ContactInputMessage = styled.textarea`
   flex: 1;
   background-color: transparent;
-  border: 1px solid ${({ theme }) => theme.text_secondary + 50};
+  border: 1px solid rgba(255, 255, 255, 0.3);
   outline: none;
   font-size: 18px;
-  color: ${({ theme }) => theme.text_primary};
+  color: #ffffff;
   border-radius: 12px;
   padding: 12px 16px;
   &:focus {
-    border: 1px solid ${({ theme }) => theme.primary};
+    border: 1px solid #007bff;
   }
 `;
 
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
 const ContactButton = styled.button`
-  width: 100%;
+  width: 48%;
   text-decoration: none;
   text-align: center;
-  background: hsla(271, 100%, 50%, 1);
+  background: #007bff;
   padding: 13px 16px;
   margin-top: 2px;
   border-radius: 12px;
   border: none;
-  color: ${({ theme }) => theme.text_primary};
+  color: #ffffff;
   font-size: 18px;
   font-weight: 600;
   cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+  animation: ${lightningEffect} 1s infinite;
+
+  &:hover {
+    background: #0056b3;
+    transform: scale(1.05);
+  }
+`;
+
+const ResetButton = styled(ContactButton)`
+  background: #ff0000;
+  &:hover {
+    background: #cc0000;
+  }
 `;
 
 const ThankYouMessage = styled.div`
@@ -182,6 +208,7 @@ const ThankYouMessage = styled.div`
   font-weight: bold;
   text-align: center;
   margin-top: 20px;
+  color: #ffffff;
   animation: ${rgbEffect} 3s infinite, ${lightningEffect} 1s infinite, ${slideInEffect} 1s ease-out forwards;
 
   &:hover {
@@ -206,6 +233,10 @@ const Contact = () => {
     e.preventDefault();
     // Netlify will handle the form submission
     form.current.submit();
+  };
+
+  const handleReset = () => {
+    form.current.reset();
   };
 
   useEffect(() => {
@@ -267,7 +298,10 @@ const Contact = () => {
             <ContactInput placeholder="Your Name" name="name" type="text" />
             <ContactInput placeholder="Subject" name="subject" type="text" />
             <ContactInputMessage placeholder="Message" name="message" rows={4} />
-            <ContactButton type="submit">Send</ContactButton>
+            <ButtonContainer>
+              <ResetButton type="button" onClick={handleReset}>Reset</ResetButton>
+              <ContactButton type="submit">Send</ContactButton>
+            </ButtonContainer>
           </ContactForm>
         </div>
 
