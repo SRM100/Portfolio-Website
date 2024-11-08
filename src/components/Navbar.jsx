@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { MenuRounded } from "@mui/icons-material";
 import styled, { useTheme } from "styled-components";
-import "@google/model-viewer";
 
 const Nav = styled.div`
   background-color: ${({ theme }) => theme.bg};
