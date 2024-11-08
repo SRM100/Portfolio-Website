@@ -2,19 +2,20 @@ export const Bio = {
   name: "Shashwat Mishra",
   roles: [
     "Robotics Engineer",
-    "AI Enthusiast",
-    "Data Scientist Enthusiast",
-    "Machine Learning Enthusiast",
+    "AI-Enthusiast",
+    "Data Science Enthusiast",
+    "ML-Enthusiast",
     "Programmer",
   ],
   description:
     "I am a motivated and versatile individual, always eager to take on new challenges. With a passion for learning I am dedicated to delivering high-quality results. With a positive attitude and a growth mindset, I am ready to make a meaningful contribution and achieve great things.",
-  github: "https://github.com/SHASHWAT-MISHRA-997",
+  
   resume:
     "https://drive.google.com/file/d/12Ab6m0w2t8BbOcn7P0jOITW5yERlyvtn/view?usp=sharing",
   linkedin: "https://www.linkedin.com/in/sm980/",
   twitter: "https://x.com/SHASHWATMI35662",
   insta: "https://www.instagram.com/sm_king997/",
+  github: "https://github.com/SHASHWAT-MISHRA-997",
 
 };
 
@@ -274,10 +275,11 @@ export const education = [
 
 export const certificates = [
   {
-    title: "Machine Learning Specialization",
-    institution: "Coursera",
-    category: "AI/ML",
-    link: "https://www.coursera.org/learn/machine-learning",
+    title: "Python3 Master",
+    institution: "UDEMY",
+    category: "UDEMY",
+    link: "https://drive.google.com/file/d/11Ea43PUinzMlxJM1AmnQZ-WnRrSuF8Bn/view",
+    image: "path/to/python3-master-image.jpg"  
   },
   {
     title: "Data Science Certification",
@@ -304,7 +306,8 @@ export const projects = [
       "Power BI dashboard project that provides insights into ecommerce sales data. The dashboard is designed to help ecommerce businesses track their sales performance, identify trends and make data-driven decisions.",
     image:
       "https://www.linkedin.com/posts/sm980_i-am-excited-to-share-my-recent-power-bi-activity-7207130769994035201-tKAI?utm_source=share&utm_medium=member_desktop",
-    library: [
+    
+      library: [
       "Power BI",
       "CSV",
       "Excel",
