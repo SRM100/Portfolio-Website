@@ -1,6 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
-import '@google/model-viewer';
 
 // Keyframes for animations
 const rgbEffect = keyframes`
