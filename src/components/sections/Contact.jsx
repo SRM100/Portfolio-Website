@@ -218,9 +218,9 @@ const Contact = () => {
     <Container id="Contact">
       <Wrapper>
         <div>
-          <Title>Contact Us</Title>
+          <Title>Contact</Title>
           <Desc>We’d love to hear from you. Reach out to us using the form below!</Desc>
-          <ContactForm name="Contact-Us" method="POST" data-netlify="true" ref={form} onSubmit={handleSubmit}>
+          <ContactForm name="Contact" method="POST" data-netlify="true" ref={form} onSubmit={handleSubmit}>
             <input type="hidden" name="form-name" value="Contact-Us" />
             <ContactTitle>Get in Touch</ContactTitle>
             <ContactInput type="text" name="name" placeholder="Your Name" required />
