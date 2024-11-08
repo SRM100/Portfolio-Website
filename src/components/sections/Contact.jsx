@@ -294,10 +294,10 @@ const Contact = () => {
           >
             <input type="hidden" name="form-name" value="contact" />
             <ContactTitle>Email Me 🚀</ContactTitle>
-            <ContactInput placeholder="Your Email" name="email" type="email" />
-            <ContactInput placeholder="Your Name" name="name" type="text" />
-            <ContactInput placeholder="Subject" name="subject" type="text" />
-            <ContactInputMessage placeholder="Message" name="message" rows={4} />
+            <ContactInput placeholder="Your Email" name="email" type="email" required />
+            <ContactInput placeholder="Your Name" name="name" type="text" required />
+            <ContactInput placeholder="Subject" name="subject" type="text" required />
+            <ContactInputMessage placeholder="Message" name="message" rows={4} required />
             <ButtonContainer>
               <ResetButton type="button" onClick={handleReset}>Reset</ResetButton>
               <ContactButton type="submit">Send</ContactButton>
