@@ -12,7 +12,7 @@ const Container = styled.div`
   align-items: center;
 `;
 
-const Wrapper = styled.div`
+const Wrapper = styled(Tilt)`
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -21,6 +21,12 @@ const Wrapper = styled.div`
   width: 100%;
   max-width: 1100px;
   gap: 12px;
+  transition: transform 0.3s ease-in-out;
+  
+  &:hover {
+    transform: scale(1.05);
+  }
+
   @media (max-width: 960px) {
     flex-direction: column;
   }
@@ -65,10 +71,18 @@ const Skill = styled.div`
   box-shadow: rgba(23, 92, 230, 0.15) 0px 4px 24px;
   border-radius: 16px;
   padding: 18px 36px;
+  transition: all 0.3s ease-in-out;
+  
+  &:hover {
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.7), 0 0 25px rgba(0, 255, 255, 0.7), 0 0 30px rgba(255, 255, 0, 0.7);
+    transform: scale(1.05);
+  }
+
   @media (max-width: 768px) {
     max-width: 400px;
     padding: 10px 36px;
   }
+
   @media (max-width: 500px) {
     max-width: 330px;
     padding: 10px 36px;
@@ -126,7 +140,7 @@ const Skills = () => {
 
   return (
     <Container id="Skills">
-      <Wrapper>
+      <Wrapper options={{ max: 10, scale: 1.05 }}>
         <Title>Skills</Title>
         <Desc style={{ marginBottom: "40px" }}>
           Here are some of my skills on which I have been working for the past 3 years.
@@ -134,7 +148,7 @@ const Skills = () => {
 
         <SkillsContainer>
           {skills.map((skill, index) => (
-            <Tilt key={`skill-${index}`}>
+            <Tilt key={`skill-${index}`} options={{ max: 10, scale: 1.05 }}>
               <Skill>
                 <SkillTitle>{skill.title}</SkillTitle>
                 <SkillList>

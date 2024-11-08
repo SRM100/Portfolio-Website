@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { certificates } from "../../data/constants"; // Import your certificates data
-import CertificateCard from "../cards/CertificateCard"; // Import a card component for certificates
+import { certificates } from "../../data/constants";
+import CertificateCard from "../cards/CertificateCard";
 
 const Container = styled.div`
   display: flex;
@@ -97,65 +97,48 @@ const CardContainer = styled.div`
 const Certificates = () => {
   const [toggle, setToggle] = useState("all");
 
+  const filteredCertificates = toggle === "all"
+    ? certificates
+    : certificates.filter((certificate) => certificate.category.toLowerCase() === toggle.toLowerCase());
+
   return (
     <Container id="Certificates">
       <Wrapper>
         <Title>Certificates</Title>
-        <Desc
-          style={{
-            marginBottom: "40px",
-          }}
-        >
+        <Desc style={{ marginBottom: "40px" }}>
           Here are some of the certificates I've earned.
         </Desc>
 
         <ToggleButtonGroup>
-          <ToggleButton
-            active={toggle === "all"}
-            onClick={() => setToggle("all")}
-          >
-            ALL
-          </ToggleButton>
+          <ToggleButton active={toggle === "all"} onClick={() => setToggle("all")}>ALL</ToggleButton>
           <Divider />
-          <ToggleButton
-            active={toggle === "AI/ML"}
-            onClick={() => setToggle("AI/ML")}
-          >
-            AI/ML
-          </ToggleButton>
+          <ToggleButton active={toggle === "Udemy"} onClick={() => setToggle("Udemy")}>UDEMY</ToggleButton>
           <Divider />
-          <ToggleButton
-            active={toggle === "Data Science"}
-            onClick={() => setToggle("Data Science")}
-          >
-            DATA SCIENCE
-          </ToggleButton>
+          <ToggleButton active={toggle === "Simplilearn"} onClick={() => setToggle("Simplilearn")}>SIMPLILEARN</ToggleButton>
           <Divider />
-          <ToggleButton
-            active={toggle === "Web Development"}
-            onClick={() => setToggle("Web Development")}
-          >
-            WEB DEVELOPMENT
-          </ToggleButton>
+          <ToggleButton active={toggle === "Microsoft"} onClick={() => setToggle("Microsoft")}>MICROSOFT</ToggleButton>
           <Divider />
-          <ToggleButton
-            active={toggle === "Other"}
-            onClick={() => setToggle("Other")}
-          >
-            OTHER
-          </ToggleButton>
+          <ToggleButton active={toggle === "Google"} onClick={() => setToggle("Google")}>GOOGLE</ToggleButton>
+          <Divider />
+          <ToggleButton active={toggle === "IBM"} onClick={() => setToggle("IBM")}>IBM</ToggleButton>
+          <Divider />
+          <ToggleButton active={toggle === "Cisco"} onClick={() => setToggle("Cisco")}>CISCO</ToggleButton>
+          <Divider />
+          <ToggleButton active={toggle === "LinkedIn"} onClick={() => setToggle("LinkedIn")}>LINKEDIN</ToggleButton>
+          <Divider />
+          <ToggleButton active={toggle === "EXPO"} onClick={() => setToggle("EXPO")}>EXPO</ToggleButton>
+          <Divider />
+          <ToggleButton active={toggle === "Achievements"} onClick={() => setToggle("Achievements")}>ACHIEVEMENTS</ToggleButton>
+          <Divider />
+          <ToggleButton active={toggle === "Event"} onClick={() => setToggle("Event")}>EVENTS</ToggleButton>
+          <Divider />
+          <ToggleButton active={toggle === "Workshops"} onClick={() => setToggle("Workshops")}>WORKSHOPS</ToggleButton>
         </ToggleButtonGroup>
 
         <CardContainer>
-          {toggle === "all" &&
-            certificates.map((certificate) => (
-              <CertificateCard certificate={certificate} />
-            ))}
-          {certificates
-            .filter((item) => item.category === toggle)
-            .map((certificate) => (
-              <CertificateCard certificate={certificate} />
-            ))}
+          {filteredCertificates.map((certificate) => (
+            <CertificateCard key={certificate.title} certificate={certificate} />
+          ))}
         </CardContainer>
       </Wrapper>
     </Container>

@@ -1,6 +1,71 @@
-import React, { useRef } from "react";
-import styled from "styled-components";
+import React, { useRef, useEffect, useState } from "react";
+import styled, { keyframes } from "styled-components";
 import '@google/model-viewer';
+
+// Keyframes for animations
+const rgbEffect = keyframes`
+  0% { color: red; }
+  33% { color: green; }
+  66% { color: blue; }
+  100% { color: red; }
+`;
+
+const lightningEffect = keyframes`
+  0%, 100% { text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff00ff, 0 0 30px #ff00ff, 0 0 40px #ff00ff, 0 0 55px #ff00ff, 0 0 75px #ff00ff; }
+  50% { text-shadow: none; }
+`;
+
+const hoverEffect = keyframes`
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+`;
+
+const pulseEffect = keyframes`
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+  100% { transform: scale(1); opacity: 1; }
+`;
+
+const shakeEffect = keyframes`
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+`;
+
+const flickerEffect = keyframes`
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+`;
+
+const slideInEffect = keyframes`
+  0% { transform: translateY(20px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+`;
+
+const bounceEffect = keyframes`
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+`;
+
+const tiltEffect = keyframes`
+  0% { transform: rotateY(0deg); }
+  50% { transform: rotateY(10deg); }
+  100% { transform: rotateY(0deg); }
+`;
+
+const zoomEffect = keyframes`
+  0% { transform: scale(1); }
+  100% { transform: scale(1.2); }
+`;
+
+const backgroundColorEffect = keyframes`
+  0% { background-color: rgba(0, 0, 0, 0.7); }
+  50% { background-color: rgba(255, 0, 0, 0.7); }
+  100% { background-color: rgba(0, 0, 0, 0.7); }
+`;
 
 // Styled Components
 const Container = styled.div`
@@ -112,9 +177,30 @@ const ContactButton = styled.button`
   cursor: pointer;
 `;
 
+const ThankYouMessage = styled.div`
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+  animation: ${rgbEffect} 3s infinite, ${lightningEffect} 1s infinite, ${slideInEffect} 1s ease-out forwards;
+
+  &:hover {
+    animation: 
+      ${rgbEffect} 3s infinite, 
+      ${lightningEffect} 1s infinite, 
+      ${hoverEffect} 0.5s infinite, 
+      ${pulseEffect} 1.5s infinite, 
+      ${shakeEffect} 1s ease infinite, 
+      ${bounceEffect} 1s infinite, 
+      ${tiltEffect} 1s infinite;
+  }
+`;
+
 // Main Contact Component
 const Contact = () => {
   const form = useRef();
+  const [hasSpoken, setHasSpoken] = useState(false);
+  const contactRef = useRef();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -122,8 +208,45 @@ const Contact = () => {
     form.current.submit();
   };
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        console.log('IntersectionObserver entry:', entry);
+        if (entry.isIntersecting && !hasSpoken) {
+          const speak = (text) => {
+            const speech = new SpeechSynthesisUtterance(text);
+            speech.pitch = 1; // Adjust pitch (0 to 2)
+            speech.rate = 1; // Adjust rate (0.1 to 10)
+            speech.volume = 1; // Adjust volume (0 to 1)
+            
+            // Select a specific voice if available
+            const voices = window.speechSynthesis.getVoices();
+            const selectedVoice = voices.find(voice => voice.lang === 'en-IN') || voices[0];
+            speech.voice = selectedVoice;
+
+            window.speechSynthesis.speak(speech);
+          };
+
+          speak("Thank you for visiting my website");
+          setHasSpoken(true);
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    if (contactRef.current) {
+      observer.observe(contactRef.current);
+    }
+
+    return () => {
+      if (contactRef.current) {
+        observer.unobserve(contactRef.current);
+      }
+    };
+  }, [hasSpoken]);
+
   return (
-    <Container id="Education">
+    <Container id="Contact" ref={contactRef}>
       <Wrapper>
         <div>
           <Title>Contact</Title>
@@ -150,7 +273,7 @@ const Contact = () => {
 
         {/* Model Viewer */}
         <model-viewer 
-          class="robo"
+          className="robo"
           src="./models/robot_playground/scene.gltf" 
           camera-controls
           disable-pan
@@ -167,6 +290,9 @@ const Contact = () => {
         ></model-viewer>
 
       </Wrapper>
+      <ThankYouMessage>
+        Thank you for visiting my website
+      </ThankYouMessage>
     </Container>
   );
 };
