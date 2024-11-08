@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import styled, { keyframes } from "styled-components";
 import "@google/model-viewer";
 
@@ -20,6 +20,53 @@ const hoverEffect = keyframes`
   50% { transform: scale(1.1); }
 `;
 
+const pulseEffect = keyframes`
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+  100% { transform: scale(1); opacity: 1; }
+`;
+
+const shakeEffect = keyframes`
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+`;
+
+const flickerEffect = keyframes`
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+`;
+
+const slideInEffect = keyframes`
+  0% { transform: translateY(20px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+`;
+
+const bounceEffect = keyframes`
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+`;
+
+const tiltEffect = keyframes`
+  0% { transform: rotateY(0deg); }
+  50% { transform: rotateY(10deg); }
+  100% { transform: rotateY(0deg); }
+`;
+
+const zoomEffect = keyframes`
+  0% { transform: scale(1); }
+  100% { transform: scale(1.2); }
+`;
+
+const backgroundColorEffect = keyframes`
+  0% { background-color: rgba(0, 0, 0, 0.7); }
+  50% { background-color: rgba(255, 0, 0, 0.7); }
+  100% { background-color: rgba(0, 0, 0, 0.7); }
+`;
+
 // Styled Components
 const Container = styled.div`
   display: flex;
@@ -38,9 +85,9 @@ const Wrapper = styled.div`
   flex-direction: row;
   width: 100%;
   max-width: 1100px;
-  gap: 40px;
+  gap: 40px; /* space between form and model viewer */
   @media (max-width: 960px) {
-    flex-direction: column;
+    flex-direction: column; /* Stack vertically on smaller screens */
   }
 `;
 
@@ -135,102 +182,67 @@ const ThankYouMessage = styled.div`
   font-weight: bold;
   text-align: center;
   margin-top: 20px;
-  animation: ${rgbEffect} 3s infinite, ${lightningEffect} 1s infinite, ${hoverEffect} 1.5s infinite;
+  animation: ${rgbEffect} 3s infinite, ${lightningEffect} 1s infinite, ${slideInEffect} 1s ease-out forwards;
+
+  &:hover {
+    animation: 
+      ${rgbEffect} 3s infinite, 
+      ${lightningEffect} 1s infinite, 
+      ${hoverEffect} 0.5s infinite, 
+      ${pulseEffect} 1.5s infinite, 
+      ${shakeEffect} 1s ease infinite, 
+      ${bounceEffect} 1s infinite, 
+      ${tiltEffect} 1s infinite;
+  }
 `;
 
 // Main Contact Component
 const Contact = () => {
   const form = useRef();
-  const [hasSpoken, setHasSpoken] = useState(false);
-  const contactRef = useRef();
+  const [hasSubmitted, setHasSubmitted] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    form.current.submit();
+    setHasSubmitted(true); // Optional: Show thank-you message
+    form.current.submit(); // Netlify form submission handling
   };
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !hasSpoken) {
-          const speak = (text) => {
-            const speech = new SpeechSynthesisUtterance(text);
-            speech.pitch = 1;
-            speech.rate = 1;
-            speech.volume = 1;
-            const voices = window.speechSynthesis.getVoices();
-            const selectedVoice = voices.find((voice) => voice.lang === "en-IN") || voices[0];
-            speech.voice = selectedVoice;
-            window.speechSynthesis.speak(speech);
-          };
-
-          speak("Thank you for visiting my website");
-          setHasSpoken(true);
-        }
-      },
-      { threshold: 0.5 }
-    );
-
-    if (contactRef.current) {
-      observer.observe(contactRef.current);
+    // Clear the form data after successful submission (optional)
+    if (hasSubmitted) {
+      setTimeout(() => setHasSubmitted(false), 3000); // Hide the message after 3 seconds
     }
-
-    return () => {
-      if (contactRef.current) {
-        observer.unobserve(contactRef.current);
-      }
-    };
-  }, [hasSpoken]);
+  }, [hasSubmitted]);
 
   return (
-    <Container id="Contact" ref={contactRef}>
+    <Container id="Contact">
       <Wrapper>
         <div>
-          <Title>Contact</Title>
-          <Desc style={{ marginBottom: "40px" }}>
-            Feel free to reach out to me for any questions or opportunities!
-          </Desc>
-
-          <ContactForm
-            name="contact"
-            method="POST"
-            data-netlify="true"
-            onSubmit={handleSubmit}
-            ref={form}
-          >
-            <input type="hidden" name="form-name" value="contact" />
-            <ContactTitle>Email Me 🚀</ContactTitle>
-            <ContactInput placeholder="Your Email" name="email" type="email" />
-            <ContactInput placeholder="Your Name" name="name" type="text" />
-            <ContactInput placeholder="Subject" name="subject" type="text" />
-            <ContactInputMessage placeholder="Message" name="message" rows={4} />
-            <ContactButton type="submit">Send</ContactButton>
+          <Title>Contact Us</Title>
+          <Desc>We’d love to hear from you. Reach out to us using the form below!</Desc>
+          <ContactForm name="Contact-Us" method="POST" data-netlify="true" ref={form} onSubmit={handleSubmit}>
+            <input type="hidden" name="form-name" value="Contact-Us" />
+            <ContactTitle>Get in Touch</ContactTitle>
+            <ContactInput type="text" name="name" placeholder="Your Name" required />
+            <ContactInput type="email" name="email" placeholder="Your Email" required />
+            <ContactInput type="text" name="subject" placeholder="Subject" required />
+            <ContactInputMessage name="message" placeholder="Your Message" rows="4" required />
+            <ContactButton type="submit">Send Message</ContactButton>
           </ContactForm>
         </div>
-
-        {/* Model Viewer */}
-        <model-viewer
-          className="robo"
-          src="./models/robot_playground/scene.gltf"
-          camera-controls
-          disable-pan
-          disable-zoom
-          interaction-prompt="none"
-          field-of-view="10deg"
-          auto-rotate
-          rotation-per-second="20deg"
-          autoplay
-          style={{
-            width: "100%",
-            maxWidth: "400px",
-            height: "500px",
-            border: "1px solid #ccc"
-          }}
-        />
+        <model-viewer 
+          src="path_to_3d_model.glb" 
+          alt="3D model" 
+          auto-rotate 
+          camera-controls 
+          style={{ width: '500px', height: '500px' }}
+        ></model-viewer>
       </Wrapper>
-      <ThankYouMessage>
-        Thank you for visiting my website
-      </ThankYouMessage>
+      {hasSubmitted && (
+        <ThankYouMessage>
+          Thank you for your message! We'll get back to you soon.
+        </ThankYouMessage>
+      )}
     </Container>
   );
 };
