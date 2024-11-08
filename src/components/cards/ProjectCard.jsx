@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
+// Style components
 const Card = styled.div`
   width: 330px;
   height: 490px;
@@ -14,19 +15,74 @@ const Card = styled.div`
   flex-direction: column;
   gap: 14px;
   transition: all 0.5s ease-in-out;
+
+  /* Apply pulse effect on hover */
   &:hover {
     transform: translateY(-10px);
     box-shadow: 0 0 50px 4px rgba(0, 0, 0, 0.6);
     filter: brightness(1.1);
+    animation: pulse 1s infinite;
+  }
+
+  /* Pulse effect */
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  /* Flipping card effect */
+  &:hover {
+    transform: rotateY(10deg);
+    transition: transform 0.6s ease-in-out;
+  }
+
+  /* RGB border glow effect */
+  &:hover {
+    border: 2px solid rgb(255, 0, 0);
+    animation: rgbGlow 1.5s linear infinite;
+  }
+
+  @keyframes rgbGlow {
+    0% {
+      border-color: rgb(255, 0, 0);
+    }
+    33% {
+      border-color: rgb(0, 255, 0);
+    }
+    66% {
+      border-color: rgb(0, 0, 255);
+    }
+    100% {
+      border-color: rgb(255, 0, 0);
+    }
+  }
+
+  /* Lightning glow effect */
+  &:hover {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 0, 0, 0.8);
   }
 `;
+
 const Image = styled.img`
   width: 100%;
   height: 180px;
   background-color: ${({ theme }) => theme.white};
   border-radius: 10px;
   box-shadow: 0 0 16px 2px rgba(0, 0, 0, 0.3);
+
+  /* Apply glowing effect on hover */
+  &:hover {
+    box-shadow: 0 0 16px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 0, 0, 0.8);
+  }
 `;
+
 const Tags = styled.div`
   width: 100%;
   display: flex;
@@ -35,6 +91,7 @@ const Tags = styled.div`
   gap: 8px;
   margin-top: 4px;
 `;
+
 const Details = styled.div`
   width: 100%;
   display: flex;
@@ -42,6 +99,7 @@ const Details = styled.div`
   gap: 0px;
   padding: 0px 2px;
 `;
+
 const Title = styled.div`
   font-size: 20px;
   font-weight: 600;
@@ -51,9 +109,17 @@ const Title = styled.div`
   max-width: 100%;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  overflow: hidden;
   text-overflow: ellipsis;
+  transition: color 0.3s ease, transform 0.3s ease;
+
+  /* Apply text glow effect on hover */
+  &:hover {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 0, 0, 0.8);
+    transform: translateX(5px);
+  }
 `;
+
 const Date = styled.div`
   font-size: 12px;
   margin-left: 2px;
@@ -63,6 +129,7 @@ const Date = styled.div`
     font-size: 10px;
   }
 `;
+
 const Description = styled.div`
   font-weight: 400;
   color: ${({ theme }) => theme.text_secondary + 99};
@@ -73,12 +140,20 @@ const Description = styled.div`
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
+
+  /* Apply text glow effect on hover */
+  &:hover {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 0, 0, 0.8);
+  }
 `;
+
 const Members = styled.div`
   display: flex;
   align-items: center;
   padding-left: 10px;
 `;
+
 const Avatar = styled.img`
   width: 38px;
   height: 38px;
@@ -88,11 +163,19 @@ const Avatar = styled.img`
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   border: 3px solid ${({ theme }) => theme.card};
 `;
+
 const Button = styled.a`
   color: ${({ theme }) => theme.primary};
   text-decoration: none;
   font-weight: 600;
   text-align: center;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+
+  /* Apply glow effect for button */
+  &:hover {
+    color: ${({ theme }) => theme.secondary};
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 0, 0, 0.8);
+  }
 `;
 
 const ProjectCard = ({ project }) => {
@@ -106,8 +189,8 @@ const ProjectCard = ({ project }) => {
         <Description>{project.description}</Description>
       </Details>
       <Members>
-        {project.member?.map((member) => (
-          <Avatar src={member.img} />
+        {project.member?.map((member, index) => (
+          <Avatar key={index} src={member.img} />
         ))}
       </Members>
       <Button href={project.github} target="_blank">

@@ -14,10 +14,58 @@ const Card = styled.div`
   flex-direction: column;
   gap: 14px;
   transition: all 0.5s ease-in-out;
+
+  /* Apply effects on hover */
   &:hover {
     transform: translateY(-10px);
     box-shadow: 0 0 50px 4px rgba(0, 0, 0, 0.6);
     filter: brightness(1.1);
+    animation: pulse 1s infinite;
+  }
+
+  /* Pulse effect */
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  /* Flipping card effect */
+  &:hover {
+    transform: rotateY(10deg);
+    transition: transform 0.6s ease-in-out;
+  }
+
+  /* RGB border glow effect */
+  &:hover {
+    border: 2px solid rgb(255, 0, 0);
+    animation: rgbGlow 1.5s linear infinite;
+  }
+
+  @keyframes rgbGlow {
+    0% {
+      border-color: rgb(255, 0, 0);
+    }
+    33% {
+      border-color: rgb(0, 255, 0);
+    }
+    66% {
+      border-color: rgb(0, 0, 255);
+    }
+    100% {
+      border-color: rgb(255, 0, 0);
+    }
+  }
+
+  /* Lightning glow effect */
+  &:hover {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 0, 0, 0.8);
   }
 `;
 
@@ -27,6 +75,11 @@ const Image = styled.img`
   background-color: ${({ theme }) => theme.white};
   border-radius: 10px;
   box-shadow: 0 0 16px 2px rgba(0, 0, 0, 0.3);
+
+  /* Apply text glow effect on hover */
+  &:hover {
+    box-shadow: 0 0 16px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 0, 0, 0.8);
+  }
 `;
 
 const Details = styled.div`
@@ -47,6 +100,12 @@ const Title = styled.div`
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
+
+  /* Text glow effect on hover */
+  &:hover {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 0, 0, 0.8);
+  }
 `;
 
 const Date = styled.div`
@@ -69,6 +128,12 @@ const Description = styled.div`
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
+
+  /* Text glow effect on hover */
+  &:hover {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 0, 0, 0.8);
+  }
 `;
 
 const Issuer = styled.div`
@@ -84,6 +149,11 @@ const Button = styled.a`
   font-weight: 600;
   text-align: center;
   margin-top: auto;
+
+  /* Glow effect for button */
+  &:hover {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 0, 0, 0.8);
+  }
 `;
 
 const CertificateCard = ({ certificate }) => {
