@@ -49,9 +49,10 @@ function App() {
               <Experience />
             </Wrapper>
             <Projects />
+            <Certificates />
             <Wrapper>
               <Education />
-              <Certificates /> {/* Adding Certificates section after Education */}
+              {/* Adding Certificates section after Education */}
               <Contact />
             </Wrapper>
             <Footer />
