@@ -137,13 +137,11 @@ const Contact = () => {
           <Title>Contact</Title>
           <Desc>Feel free to reach out to me for any questions or opportunities!</Desc>
           <ContactForm
-            name="contact"
+            action="https://formspree.io/f/mzzbgpoy"
             method="POST"
-            data-netlify="true"
             onSubmit={handleSubmit}
             ref={form}
           >
-            <input type="hidden" name="form-name" value="contact" />
             <ContactTitle>Email Me 🚀</ContactTitle>
             <ContactInput placeholder="Your Email" name="email" type="email" required />
             <ContactInput placeholder="Your Name" name="name" type="text" required />
