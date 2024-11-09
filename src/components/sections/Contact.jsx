@@ -178,7 +178,6 @@ const Contact = () => {
             <ContactInputMessage placeholder="Message" name="message" rows={4} required />
             <ContactButton type="submit">Send</ContactButton>
           </ContactForm>
-          <ContactLink href="mailto:rjkm3169@gmail.com">Contact me at rjkm3169@gmail.com</ContactLink>
         </div>
 
         <model-viewer 
