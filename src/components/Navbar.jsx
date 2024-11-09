@@ -194,6 +194,9 @@ const Navbar = () => {
     if (section === 'Projects' || section === 'Certificates') {
       vangelisAudio.play();
     }
+
+    // Close the mobile menu
+    setIsOpen(false);
   };
 
   const startAudioPlayback = () => {
