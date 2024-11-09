@@ -185,6 +185,7 @@ const Navbar = () => {
   const handleSectionChange = (section) => {
     setCurrentSection(section);
     const hoverAudio = document.getElementById("hover-audio");
+    const hover2Audio = document.getElementById("hover2-audio");
     const vangelisAudio = document.getElementById("vangelis-audio");
 
     if (section !== 'About') {
@@ -193,6 +194,10 @@ const Navbar = () => {
 
     if (section === 'Projects' || section === 'Certificates') {
       vangelisAudio.play();
+    }
+
+    if (section === 'Skills' || section === 'Experience' || section === 'Projects' || section === 'Certificates' || section === 'Education' || section === 'Contact') {
+      hover2Audio.play();
     }
 
     // Close the mobile menu
@@ -274,6 +279,11 @@ const Navbar = () => {
       <audio id="hover-audio">
         <source src="/audio/hover-sound.mp3" type="audio/mpeg" />
         <source src="/audio/hover-sound.ogg" type="audio/ogg" />
+        Your browser does not support the audio element.
+      </audio>
+      <audio id="hover2-audio">
+        <source src="/audio/hover2.mp3" type="audio/mpeg" />
+        <source src="/audio/hover2.ogg" type="audio/ogg" />
         Your browser does not support the audio element.
       </audio>
       <audio id="vangelis-audio" loop>
