@@ -114,6 +114,8 @@ const Certificates = () => {
           <Divider />
           <ToggleButton active={toggle === "Udemy"} onClick={() => setToggle("Udemy")}>UDEMY</ToggleButton>
           <Divider />
+          <ToggleButton active={toggle === "Great-Learning"} onClick={() => setToggle("Great-Learning")}>GREAT LEARNING</ToggleButton>
+          <Divider />
           <ToggleButton active={toggle === "Simplilearn"} onClick={() => setToggle("Simplilearn")}>SIMPLILEARN</ToggleButton>
           <Divider />
           <ToggleButton active={toggle === "Microsoft"} onClick={() => setToggle("Microsoft")}>MICROSOFT</ToggleButton>
@@ -130,9 +132,8 @@ const Certificates = () => {
           <Divider />
           <ToggleButton active={toggle === "Achievements"} onClick={() => setToggle("Achievements")}>ACHIEVEMENTS</ToggleButton>
           <Divider />
-          <ToggleButton active={toggle === "Event"} onClick={() => setToggle("Event")}>EVENTS</ToggleButton>
+          <ToggleButton active={toggle === "Workshops/Events"} onClick={() => setToggle("Workshops/events")}>WORKSHOPS/EVENTS</ToggleButton>
           <Divider />
-          <ToggleButton active={toggle === "Workshops"} onClick={() => setToggle("Workshops")}>WORKSHOPS</ToggleButton>
         </ToggleButtonGroup>
 
         <CardContainer>
