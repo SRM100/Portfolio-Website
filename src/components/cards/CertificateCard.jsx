@@ -15,7 +15,6 @@ const Card = styled.div`
   gap: 14px;
   transition: all 0.5s ease-in-out;
 
-  /* Apply effects on hover */
   &:hover {
     transform: translateY(-10px);
     box-shadow: 0 0 50px 4px rgba(0, 0, 0, 0.6);
@@ -23,7 +22,6 @@ const Card = styled.div`
     animation: pulse 1s infinite;
   }
 
-  /* Pulse effect */
   @keyframes pulse {
     0% {
       transform: scale(1);
@@ -36,13 +34,11 @@ const Card = styled.div`
     }
   }
 
-  /* Flipping card effect */
   &:hover {
     transform: rotateY(10deg);
     transition: transform 0.6s ease-in-out;
   }
 
-  /* RGB border glow effect */
   &:hover {
     border: 2px solid rgb(255, 0, 0);
     animation: rgbGlow 1.5s linear infinite;
@@ -63,7 +59,6 @@ const Card = styled.div`
     }
   }
 
-  /* Lightning glow effect */
   &:hover {
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 0, 0, 0.8);
   }
@@ -76,7 +71,6 @@ const Image = styled.img`
   border-radius: 10px;
   box-shadow: 0 0 16px 2px rgba(0, 0, 0, 0.3);
 
-  /* Apply text glow effect on hover */
   &:hover {
     box-shadow: 0 0 16px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 0, 0, 0.8);
   }
@@ -101,46 +95,10 @@ const Title = styled.div`
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
 
-  /* Text glow effect on hover */
   &:hover {
     color: #fff;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 0, 0, 0.8);
   }
-`;
-
-const Date = styled.div`
-  font-size: 12px;
-  margin-left: 2px;
-  font-weight: 400;
-  color: ${({ theme }) => theme.text_secondary + 80};
-  @media only screen and (max-width: 768px) {
-    font-size: 10px;
-  }
-`;
-
-const Description = styled.div`
-  font-weight: 400;
-  color: ${({ theme }) => theme.text_secondary + 99};
-  overflow: hidden;
-  margin-top: 8px;
-  display: -webkit-box;
-  max-width: 100%;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  text-overflow: ellipsis;
-
-  /* Text glow effect on hover */
-  &:hover {
-    color: #fff;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 0, 0, 0.8);
-  }
-`;
-
-const Issuer = styled.div`
-  font-size: 14px;
-  font-weight: 500;
-  color: ${({ theme }) => theme.text_primary};
-  margin-top: 4px;
 `;
 
 const Button = styled.a`
@@ -150,7 +108,6 @@ const Button = styled.a`
   text-align: center;
   margin-top: auto;
 
-  /* Glow effect for button */
   &:hover {
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 0, 0, 0.8);
   }
@@ -162,9 +119,6 @@ const CertificateCard = ({ certificate }) => {
       <Image src={certificate.image} />
       <Details>
         <Title>{certificate.title}</Title>
-        <Issuer>Issued by: {certificate.issuer}</Issuer>
-        <Date>{certificate.date}</Date>
-        <Description>{certificate.description}</Description>
       </Details>
       <Button href={certificate.link} target="_blank">
         View Certificate
