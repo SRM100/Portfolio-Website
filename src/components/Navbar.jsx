@@ -113,7 +113,9 @@ const ButtonContainer = styled.div`
   padding: 0 6px;
 
   @media screen and (max-width: 768px) {
-    display: none;
+    display: flex;
+    justify-content: center;
+    width: 100%;
   }
 `;
 
