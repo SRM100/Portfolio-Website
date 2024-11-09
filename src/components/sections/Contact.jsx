@@ -135,6 +135,28 @@ const PopUpMessage = styled.div`
   animation: ${whiteLightningEffect} 1s infinite;
 `;
 
+const ModelViewer = styled.div`
+  width: 800px;
+  height: 800px;
+  max-width: 100%;
+  display: block;
+
+  @media (max-width: 1200px) {
+    width: 600px;
+    height: 600px;
+  }
+
+  @media (max-width: 960px) {
+    width: 400px;
+    height: 400px;
+  }
+
+  @media (max-width: 600px) {
+    width: 300px;
+    height: 300px;
+  }
+`;
+
 const Contact = () => {
   const form = useRef();
   const [hasSpoken, setHasSpoken] = useState(false);
@@ -220,16 +242,18 @@ const Contact = () => {
           </ContactForm>
         </div>
 
-        <model-viewer 
-          src="./models/robot_playground/scene.gltf" 
-          camera-controls
-          disable-pan
-          disable-zoom
-          interaction-prompt="none"
-          field-of-view="10deg"
-          autoplay
-          style={{ width: "800px", height: "800px", maxWidth: "100%", display: "block" }}
-        ></model-viewer>
+        <ModelViewer>
+          <model-viewer 
+            src="./models/robot_playground/scene.gltf" 
+            camera-controls
+            disable-pan
+            disable-zoom
+            interaction-prompt="none"
+            field-of-view="10deg"
+            autoplay
+            style={{ width: "100%", height: "100%" }}
+          ></model-viewer>
+        </ModelViewer>
       </Wrapper>
       <ThankYouMessage>Thank you for visiting my website</ThankYouMessage>
       {showPopUp && <PopUpMessage>Thanks! The form was submitted successfully.</PopUpMessage>}
