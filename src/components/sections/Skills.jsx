@@ -143,7 +143,7 @@ const Skills = () => {
       <Wrapper options={{ max: 10, scale: 1.05 }}>
         <Title>Skills</Title>
         <Desc style={{ marginBottom: "40px" }}>
-          Here are some of my skills on which I have been working for the past 3 years.
+          Here are some of my skills .
         </Desc>
 
         <SkillsContainer>
