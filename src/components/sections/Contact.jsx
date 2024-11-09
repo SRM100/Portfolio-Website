@@ -1,6 +1,5 @@
 import React, { useRef, useEffect, useState } from "react"; 
 import styled, { keyframes } from "styled-components";
-import emailjs from 'emailjs-com';
 import "@google/model-viewer";
 
 // Keyframes for animations
@@ -22,7 +21,6 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px;
 `;
 
 const Wrapper = styled.div`
@@ -46,7 +44,6 @@ const Desc = styled.div`
   font-size: 18px;
   text-align: center;
   font-weight: 600;
-  margin-bottom: 20px;
 `;
 
 const ContactForm = styled.form`
@@ -56,28 +53,23 @@ const ContactForm = styled.form`
   padding: 32px;
   border-radius: 12px;
   gap: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
 `;
 
 const ContactTitle = styled.div`
   font-size: 28px;
   font-weight: 600;
-  margin-bottom: 20px;
 `;
 
 const ContactInput = styled.input`
   font-size: 18px;
   padding: 12px 16px;
   border-radius: 12px;
-  border: 1px solid #ccc;
 `;
 
 const ContactInputMessage = styled.textarea`
   font-size: 18px;
   padding: 12px 16px;
   border-radius: 12px;
-  border: 1px solid #ccc;
 `;
 
 const ContactButton = styled.button`
@@ -86,12 +78,6 @@ const ContactButton = styled.button`
   font-size: 18px;
   font-weight: 600;
   cursor: pointer;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  &:hover {
-    background-color: #0056b3;
-  }
 `;
 
 const ThankYouMessage = styled.div`
@@ -102,14 +88,6 @@ const ThankYouMessage = styled.div`
   animation: ${rgbEffect} 3s infinite, ${lightningEffect} 1s infinite;
 `;
 
-const ContactLink = styled.a`
-  color: inherit;
-  text-decoration: none;
-  &:hover {
-    text-decoration: underline;
-  }
-`;
-
 const Contact = () => {
   const form = useRef();
   const [hasSpoken, setHasSpoken] = useState(false);
@@ -117,19 +95,7 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    emailjs.sendForm(
-      process.env.REACT_APP_EMAILJS_SERVICE_ID,
-      process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
-      form.current,
-      process.env.REACT_APP_EMAILJS_USER_ID
-    )
-      .then((result) => {
-          console.log(result.text);
-          alert("Message sent successfully!");
-      }, (error) => {
-          console.log(error.text);
-          alert("Failed to send message, please try again.");
-      });
+    form.current.submit();
   };
 
   useEffect(() => {
@@ -170,7 +136,14 @@ const Contact = () => {
         <div>
           <Title>Contact</Title>
           <Desc>Feel free to reach out to me for any questions or opportunities!</Desc>
-          <ContactForm ref={form} onSubmit={handleSubmit}>
+          <ContactForm
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            onSubmit={handleSubmit}
+            ref={form}
+          >
+            <input type="hidden" name="form-name" value="contact" />
             <ContactTitle>Email Me 🚀</ContactTitle>
             <ContactInput placeholder="Your Email" name="email" type="email" required />
             <ContactInput placeholder="Your Name" name="name" type="text" required />
