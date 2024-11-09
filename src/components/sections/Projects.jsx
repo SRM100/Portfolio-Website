@@ -184,7 +184,7 @@ const Projects = () => {
 
         {!showToggleBelow && (
           <ToggleButtonGroup>
-            {["all", "Power BI", "machine learning", "Data-Science", "Generative-AI", "Robotics"].map((category) => (
+            {["all", "Power BI", "machine learning", "Data-Science", "Generative-AI", "AI"].map((category) => (
               <>
                 <ToggleButton
                   key={category}
@@ -209,7 +209,7 @@ const Projects = () => {
 
         {showToggleBelow && (
           <ToggleButtonGroup className="mobile-toggle-group">
-            {["all", "Power BI", "machine learning", "Data-Science", "Generative-AI", "Robotics"].map((category) => (
+            {["all", "Power BI", "machine learning", "Data-Science", "Generative-AI", "AI"].map((category) => (
               <>
                 <ToggleButton
                   key={category}
