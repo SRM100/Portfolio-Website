@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
 import { certificates } from "../../data/constants";
 import CertificateCard from "../cards/CertificateCard";
@@ -69,8 +69,13 @@ const ToggleButton = styled.div`
   padding: 8px 18px;
   border-radius: 6px;
   cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  border: 2px solid transparent;
+  background-clip: padding-box;
   &:hover {
     background: ${({ theme }) => theme.primary + 20};
+    box-shadow: 0 0 10px ${({ theme }) => theme.primary}, 0 0 20px ${({ theme }) => theme.primary};
   }
   @media (max-width: 768px) {
     padding: 10px 12px;
@@ -83,6 +88,48 @@ const ToggleButton = styled.div`
     `
   background:  ${theme.primary + 20};
   `}
+  &:before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 6px;
+    border: 2px solid;
+    border-image: linear-gradient(45deg, red, yellow, green, cyan, blue, violet) 1;
+    animation: rgbGlow 1.5s linear infinite;
+  }
+  @keyframes rgbGlow {
+    0% {
+      border-color: red;
+    }
+    33% {
+      border-color: yellow;
+    }
+    66% {
+      border-color: green;
+    }
+    100% {
+      border-color: red;
+    }
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+  &:hover:after {
+    opacity: 1;
+    box-shadow: 0 0 10px white, 0 0 20px white;
+  }
 `;
 
 const Divider = styled.div`
@@ -104,6 +151,24 @@ const CardContainer = styled.div`
 
 const Certificates = () => {
   const [toggle, setToggle] = useState("all");
+  const [showToggleBelow, setShowToggleBelow] = useState(false);
+  const cardRefs = useRef([]);
+
+  const handleToggle = (category) => {
+    setToggle(category);
+    setShowToggleBelow(true);
+  };
+
+  useEffect(() => {
+    if (toggle !== "all") {
+      const index = certificates.findIndex(
+        (certificate) => certificate.category.toLowerCase() === toggle.toLowerCase()
+      );
+      if (index !== -1 && cardRefs.current[index]) {
+        cardRefs.current[index].scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [toggle]);
 
   const filteredCertificates = toggle === "all"
     ? certificates
@@ -117,38 +182,47 @@ const Certificates = () => {
           Here are some of the certificates I've earned.
         </Desc>
 
-        <ToggleButtonGroup>
-          <ToggleButton active={toggle === "all"} onClick={() => setToggle("all")}>ALL</ToggleButton>
-          <Divider />
-          <ToggleButton active={toggle === "Udemy"} onClick={() => setToggle("Udemy")}>UDEMY</ToggleButton>
-          <Divider />
-          <ToggleButton active={toggle === "Great-Learning"} onClick={() => setToggle("Great-Learning")}>GREAT LEARNING</ToggleButton>
-          <Divider />
-          <ToggleButton active={toggle === "Simplilearn"} onClick={() => setToggle("Simplilearn")}>SIMPLILEARN</ToggleButton>
-          <Divider />
-          <ToggleButton active={toggle === "Microsoft"} onClick={() => setToggle("Microsoft")}>MICROSOFT</ToggleButton>
-          <Divider />
-          <ToggleButton active={toggle === "Google"} onClick={() => setToggle("Google")}>GOOGLE</ToggleButton>
-          <Divider />
-          <ToggleButton active={toggle === "IBM"} onClick={() => setToggle("IBM")}>IBM</ToggleButton>
-          <Divider />
-          <ToggleButton active={toggle === "Cisco"} onClick={() => setToggle("Cisco")}>CISCO</ToggleButton>
-          <Divider />
-          <ToggleButton active={toggle === "LinkedIn"} onClick={() => setToggle("LinkedIn")}>LINKEDIN</ToggleButton>
-          <Divider />
-          <ToggleButton active={toggle === "EXPO"} onClick={() => setToggle("EXPO")}>EXPO</ToggleButton>
-          <Divider />
-          <ToggleButton active={toggle === "Achievements"} onClick={() => setToggle("Achievements")}>ACHIEVEMENTS</ToggleButton>
-          <Divider />
-          <ToggleButton active={toggle === "Workshops/Events"} onClick={() => setToggle("Workshops/events")}>WORKSHOPS/EVENTS</ToggleButton>
-          <Divider />
-        </ToggleButtonGroup>
+        {!showToggleBelow && (
+          <ToggleButtonGroup>
+            {["all", "Udemy", "Great-Learning", "Simplilearn", "Microsoft", "Google", "IBM", "Cisco", "LinkedIn", "EXPO", "Achievements", "Workshops/Events"].map((category) => (
+              <>
+                <ToggleButton
+                  key={category}
+                  active={toggle === category}
+                  onClick={() => handleToggle(category)}
+                >
+                  {category.toUpperCase()}
+                </ToggleButton>
+                <Divider />
+              </>
+            ))}
+          </ToggleButtonGroup>
+        )}
 
         <CardContainer>
-          {filteredCertificates.map((certificate) => (
-            <CertificateCard key={certificate.title} certificate={certificate} />
+          {filteredCertificates.map((certificate, index) => (
+            <div key={certificate.title} ref={(el) => (cardRefs.current[index] = el)}>
+              <CertificateCard certificate={certificate} />
+            </div>
           ))}
         </CardContainer>
+
+        {showToggleBelow && (
+          <ToggleButtonGroup className="mobile-toggle-group">
+            {["all", "Udemy", "Great-Learning", "Simplilearn", "Microsoft", "Google", "IBM", "Cisco", "LinkedIn", "EXPO", "Achievements", "Workshops/Events"].map((category) => (
+              <>
+                <ToggleButton
+                  key={category}
+                  active={toggle === category}
+                  onClick={() => handleToggle(category)}
+                >
+                  {category.toUpperCase()}
+                </ToggleButton>
+                <Divider />
+              </>
+            ))}
+          </ToggleButtonGroup>
+        )}
       </Wrapper>
     </Container>
   );
