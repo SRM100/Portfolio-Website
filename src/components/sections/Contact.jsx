@@ -88,14 +88,35 @@ const ThankYouMessage = styled.div`
   animation: ${rgbEffect} 3s infinite, ${lightningEffect} 1s infinite;
 `;
 
+const SuccessMessage = styled.div`
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+`;
+
 const Contact = () => {
   const form = useRef();
   const [hasSpoken, setHasSpoken] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const contactRef = useRef();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    form.current.submit();
+    const formData = new FormData(form.current);
+    fetch("https://formspree.io/f/mzzbgpoy", {
+      method: "POST",
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    }).then(response => {
+      if (response.ok) {
+        setIsSubmitted(true);
+      } else {
+        alert("There was an error submitting the form");
+      }
+    });
   };
 
   useEffect(() => {
@@ -136,19 +157,25 @@ const Contact = () => {
         <div>
           <Title>Contact</Title>
           <Desc>Feel free to reach out to me for any questions or opportunities!</Desc>
-          <ContactForm
-            action="https://formspree.io/f/mzzbgpoy"
-            method="POST"
-            onSubmit={handleSubmit}
-            ref={form}
-          >
-            <ContactTitle>Email Me 🚀</ContactTitle>
-            <ContactInput placeholder="Your Email" name="email" type="email" required />
-            <ContactInput placeholder="Your Name" name="name" type="text" required />
-            <ContactInput placeholder="Subject" name="subject" type="text" required />
-            <ContactInputMessage placeholder="Message" name="message" rows={4} required />
-            <ContactButton type="submit">Send</ContactButton>
-          </ContactForm>
+          {isSubmitted ? (
+            <SuccessMessage>
+              Thanks! The form was submitted successfully.
+              <br />
+              <button onClick={() => setIsSubmitted(false)}>Go back</button>
+            </SuccessMessage>
+          ) : (
+            <ContactForm
+              onSubmit={handleSubmit}
+              ref={form}
+            >
+              <ContactTitle>Email Me 🚀</ContactTitle>
+              <ContactInput placeholder="Your Email" name="email" type="email" required />
+              <ContactInput placeholder="Your Name" name="name" type="text" required />
+              <ContactInput placeholder="Subject" name="subject" type="text" required />
+              <ContactInputMessage placeholder="Message" name="message" rows={4} required />
+              <ContactButton type="submit">Send</ContactButton>
+            </ContactForm>
+          )}
         </div>
 
         <model-viewer 
