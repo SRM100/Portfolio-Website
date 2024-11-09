@@ -272,30 +272,120 @@ export const education = [
     degree: "CBSE(X), Science with Computer",
   },
 ];
-
 export const certificates = [
   {
+    id: 0,
     title: "Python3 Master",
-    institution: "UDEMY",
     category: "UDEMY",
     link: "https://drive.google.com/file/d/11Ea43PUinzMlxJM1AmnQZ-WnRrSuF8Bn/view",
-    image: "path/to/python3-master-image.jpg"  
+    image: "/Certificate_images/Python3Master.png"
   },
   {
-    title: "Data Science Certification",
-    institution: "edX",
-    category: "Data Science",
-    link: "https://www.edx.org/professional-certificate/data-science",
+    id: 1,
+    title: "Machine Learning with Python",
+    category: "IBM",
+    link: "https://www.google.com/url?q=https://coursera.org/share/67d108e1118dc8467d77487668bb2a4f&sa=D&source=apps-viewer-frontend&ust=1731256822596686&usg=AOvVaw00m4K7MrhCTz8NnloHajIg&hl=en-GB",
+    image: "/Certificate_images/Machine-Learning.png"
   },
   {
-    title: "Full Stack Web Development",
-    institution: "Udemy",
-    category: "Web Development",
-    link: "https://www.udemy.com/course/the-complete-web-development-bootcamp/",
+    id: 2,
+    title: "Google AI Essential",
+    category: "Google",
+    link: "https://www.google.com/url?q=https://www.coursera.org/account/accomplishments/verify/4QYCI4MY6BPQ&sa=D&source=apps-viewer-frontend&ust=1731256822596905&usg=AOvVaw0NHfgliuuxoSx8rpyh2buD&hl=en-GB",
+    image: "/Certificate_images/Google.png"
   },
-  // Add more certificates as needed
+  {
+    id: 3,
+    title: "Microsoft Learn AI Skills Challenge",
+    category: "Microsoft",
+    link: "https://drive.google.com/file/d/1vcYf80gEH6NUnj65CR2tiO0WDM4iPD_l/view",
+    image: "/Certificate_images/Microsoft.png"
+  },
+  {
+    id: 4,
+    title: "Blockchain Basics",
+    category: "Great-Learning",
+    link: "https://drive.google.com/file/d/1E7FkWQozmcrd6cow0R3xSts7i8A0fBh1/view",
+    image: "/Certificate_images/Great-Learning.png"
+  },
+  {
+    id: 5,
+    title: "Power-BI",
+    category: "Simplilearn",
+    link: "https://www.linkedin.com/in/sm980/details/certifications/1727113793892/single-media-viewer/?type=IMAGE&profileId=ACoAAD18zzMBRZwNz4zraAcTrc1AYG_TEHe1ic8",
+    image: "/Certificate_images/Power-BI.png"
+  },
+  {
+    id: 6,
+    title: "Tensorflow for Beginners",
+    category: "Simplilearn",
+    link: "https://www.google.com/url?q=https://drive.google.com/file/d/1-KwzvpxWI5W_wS6-DAwgZTZR-aWaC9Tr/view?usp%3Dsharing&sa=D&source=apps-viewer-frontend&ust=1731256822596741&usg=AOvVaw2tE-xl5zntfdhORhQxF-CE&hl=en-GB",
+    image: "/Certificate_images/Power-BI.png"
+  },
+  {
+    id: 7,
+    title: "Introduction to Artificial Intelligence",
+    category: "Simplilearn",
+    link: "https://drive.google.com/file/d/1feths3En9ClJ0RgB_LmGCmBLTNW7oVVl/view",
+    image: "/Certificate_images/AI.png"
+  },
+  {
+    id: 8,
+    title: "Introduction to Data Science",
+    category: "Cisco",
+    link: "https://www.credly.com/badges/370801f5-93f1-4849-a129-e73b2bcb4d01/linked_in_profile",
+    image: "/Certificate_images/CISCO.png"
+  },
+  {
+    id: 9,
+    title: "Introduction to Carrer Skills in Data Analytics",
+    category: "Linkedin",
+    link: "https://www.linkedin.com/learning/certificates/6b596aebd0fabf3f35104f5fc7b2bfa451ad5c526d41f82cb7f1d2b4c937d17e?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BQuMPQiQkRxi5rmhioSuwyw%3D%3D",
+    image: "/Certificate_images/Linkedin-Learning.png"
+  },
+  {
+    id: 10,
+    title: "Prerequisites for Internet of Things and AI Cloud",
+    category: "infosys",
+    link: "https://drive.google.com/file/d/18439q0Y-00izArR8ia2u17DGdg-IGHGL/view",
+    image: "/Certificate_images/Infosys.png"
+  },
+  {
+    id: 11,
+    title: "Ansys Solutions ",
+    category: "Workshops/Events",
+    link: "https://www.linkedin.com/posts/sm980_automotivetech-adas-electricvehicles-activity-7257065495080660994-QqET/",
+    image: "/Certificate_images/CADFEM.png"
+  },
+  {
+      id: 12,
+      title: "Embedded System",
+      category: "Workshops/Events",
+      link: "https://drive.google.com/file/d/1hUq-SmTRy6JSjDvWlR0UVXwMn64lpbgf/view",
+      image: "/Certificate_images/Robotronix.png"
+  },
+  {
+    id: 13,
+    title: "Arduino and its Interfacing",
+    category: "Workshops/Events",
+    link: "https://drive.google.com/file/d/1zbIV1JmrPdelKJCJ8NXF6TbtnLEHZUKa/view",
+    image: "/Certificate_images/Arduino.png"
+  },
+  {
+    id: 14,
+    title: "Speech-Master",
+    category: "Achievements",
+    link: "https://drive.google.com/file/d/14MnaF9AmE9DQI0jiKJ1qZCtOIcLqgurh/view?usp=sharing",
+    image: "/Certificate_images/Speech-Master.png"
+  },
+  {
+    id: 15,
+    title: "TECH-EXPO-2024",
+    category: "EXPO",
+    link: "https://media.licdn.com/dms/image/v2/D4D22AQGJODniu8ZjaA/feedshare-shrink_1280/feedshare-shrink_1280/0/1707334035238?e=1733961600&v=beta&t=Jg1KrUHTApYpZDtusyVXWoY4zLmIQnPiYjkmHt2P920",
+    image: "/Certificate_images/Expo.png"
+  }
 ];
-
 
 export const projects = [
   {
@@ -304,76 +394,45 @@ export const projects = [
     date: "June 2024 - July 2024",
     description:
       "Power BI dashboard project that provides insights into ecommerce sales data. The dashboard is designed to help ecommerce businesses track their sales performance, identify trends and make data-driven decisions.",
-    image:
-      "https://www.linkedin.com/posts/sm980_i-am-excited-to-share-my-recent-power-bi-activity-7207130769994035201-tKAI?utm_source=share&utm_medium=member_desktop",
-    
-      library: [
-      "Power BI",
-      "CSV",
-      "Excel",
-    ],
+    image: "/project_images/DashBoard.png",
+    library: ["Power BI", "CSV", "Excel"],
     category: "Power BI",
-    github: "git@github.com:SHASHWAT-MISHRA-997/SM-Ecommerce-Sales-PowerBi-Dashboard-Project.git",
+    github: "https://github.com/SHASHWAT-MISHRA-997/SM-Ecommerce-Sales-PowerBi-Dashboard-Project",
   },
-
   {
     id: 1,
     title: "Whatsapp-Chat-Advanced-AI-Analyzer-Web-App",
     date: "June 2024 - July 2024",
     description:
       "This is a WhatsApp chat analysis web app built using Streamlit, a popular Python library for building data apps. The app allows you to upload a WhatsApp chat file (in .txt format) and analyzes the data to provide various insights.",
-    image:
-      "https://www.linkedin.com/posts/sm980_streamlit-python-nlp-activity-7228509845681803264-0wyR?utm_source=share&utm_medium=member_desktop",
-    library: [
-      "Python",
-      "Pandas",
-      "Numpy",
-      "Matplotlib",
-      "Seaborn",
-      "Plotly",
-      "Streamlit",
-    ],
+    image: "/project_images/Whatsapp-Chat-Advance-AI-Analyzer.png",
+    library: ["Python", "Pandas", "Numpy", "Matplotlib", "Seaborn", "Plotly", "Streamlit"],
     category: "web app",
-    github: "git@github.com:SHASHWAT-MISHRA-997/Whatsapp-Chat-Advanced-AI-Analyzer-Web-App.git",
+    github: "https://github.com/SHASHWAT-MISHRA-997/Whatsapp-Chat-Advanced-AI-Analyzer-Web-App",
     webapp: "https://whatsapp-chat-advanced-ai-analyzer-web-app-shashwat-mishra-997.streamlit.app/",
   },
-  
   {
     id: 2,
     title: "Productivity-Enhance-Multi-Tool-Web-App",
-    date: " August 2024 - September 2024",
+    date: "August 2024 - September 2024",
     description:
       "The Productivity-Enhance-Multi-Tool App is a powerful web application designed to streamline a wide range of digital tasks. Whether you need to manipulate PDFs, edit images, compress videos or convert various document formats this app provides a comprehensive suite of tools to enhance your productivity.",
-    image:
-      "https://www.linkedin.com/posts/sm980_webdevelopment-productivity-automation-activity-7236406631683502081-ukMd?utm_source=share&utm_medium=member_desktop",
-    library: [
-      "PyPDF2",
-      "pytesseract",
-      "pdfkit",
-      "fitz",
-      "cv2",
-      "numpy",
-      "streamlit",
-      "os",
-      "Pandas",
-      "zlib",
-    ],
+    image: "/project_images/Enhance-Multi-Tool--Web-App.png",
+    library: ["PyPDF2", "pytesseract", "pdfkit", "fitz", "cv2", "numpy", "streamlit", "os", "Pandas", "zlib"],
     category: "web app",
-    github: "git@github.com:SHASHWAT-MISHRA-997/Productivity-Enhance-Multi-Tool--Web-App.git",
+    github: "https://github.com/SHASHWAT-MISHRA-997/Productivity-Enhance-Multi-Tool--Web-App",
     webapp: "https://enhance-multi-tool--web-app-shashwat-mishra.streamlit.app/",
   },
-
   {
     id: 3,
     title: "Agriculture_Commodit_Advance_Price_Predictor -WEB-APP",
     date: "August 2024 - September 2024",
     description:
       "Agriculture Commodity Price Predictor Web App! This tool provides advanced AI and ML-based predictions to help agricultural stakeholders such as farmers, businesses and government bodies analyze price trends and forecast future commodity prices in real-time.",
-    image:
-      "https://www.linkedin.com/posts/sm980_working-video-of-ai-ml-based-commodity-activity-7238897697737322498-B9Pw?utm_source=share&utm_medium=member_desktop",
+    image: "/project_images/Agriculture-Commodity-Advance-Price-Predictor.png",
     library: ["base64", "Math", "datetime", "sklearn", "fpdf", "seaborn", "matplotlib", "streamlit"],
     category: "web app",
-    github: "git@github.com:SHASHWAT-MISHRA-997/Agriculture_Commodity_Advance_Price_Predictor_Web_App.git",
+    github: "https://github.com/SHASHWAT-MISHRA-997/Agriculture_Commodity_Advance_Price_Predictor_Web_App",
     webapp: "https://agriculture-commodity-advance-price-predictor-shashwat-mishra.streamlit.app/",
   },
   {
@@ -382,22 +441,15 @@ export const projects = [
     date: "September 2024 - October 2024",
     description:
       "InsightBot an AI-powered tool that allows users to upload and interact with PDF documents through an intelligent chatbot. This application uses models like OpenAI GPT for answering questions based on the content of your PDFs and also offers additional analytical functionalities like word count, character count and sentiment analysis",
-    image:
-      "https://www.linkedin.com/posts/sm980_excited-to-share-my-another-project-based-activity-7243682941816520704-IQwY?utm_source=share&utm_medium=member_desktop",
-    library: [
-      "htmlTemplates",
-      "PyPdF2",
-      "openai",
-      "streamlit",
-    ],
+    image: "/project_images/Insight-PDF-Chat-Bot.png",
+    library: ["htmlTemplates", "PyPdF2", "openai", "streamlit"],
     category: "web app",
-    github: "git@github.com:SHASHWAT-MISHRA-997/Insight-PDF-Chat-Bot.git",
+    github: "https://github.com/SHASHWAT-MISHRA-997/Insight-PDF-Chat-Bot",
     webapp: "https://insight-pdf-chat-bot-shashwat-mishra-997.streamlit.app/",
   },
-
   {
     id: 5,
-    title: "Brain Tumor Detection",
+    title: "Advance-Chat-Assistant",
     date: "Jan 2023 - Mar 2023",
     description: `💬 AI-Powered Chatbot: Interact with an advanced AI assistant to get answers on various topics.
     
@@ -417,9 +469,7 @@ export const projects = [
 
     🧠 Sentiment & Emotion Analysis: Evaluate the sentiment and emotions from text or transcribed audio.
     `,
-
-    image:
-      "https://www.linkedin.com/posts/sm980_excited-to-share-my-another-updated-advance-chat-assistant-activity-7251327470304448514-5stu?utm_source=share&utm_medium=member_desktop",
+    image: "/project_images/Advance-Chat-Assistant.png",
     library: ["Python", "deep_translator", "Transformers", "speech_recognition", "ollama", "gTTS"],
     category: "machine learning",
     github: "https://github.com/SHASHWAT-MISHRA-997/Advance-Chat-Assistant",
