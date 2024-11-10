@@ -170,9 +170,10 @@ const Projects = () => {
     }
   }, [toggle]);
 
-  const filteredProjects = toggle === "all"
-    ? projects
-    : projects.filter((project) => project.category.toLowerCase() === toggle.toLowerCase());
+  const filteredProjects =
+    toggle === "all"
+      ? projects
+      : projects.filter((project) => project.category.toLowerCase() === toggle.toLowerCase());
 
   return (
     <Container id="Projects">
@@ -184,18 +185,19 @@ const Projects = () => {
 
         {!showToggleBelow && (
           <ToggleButtonGroup>
-            {["all", "Power BI", "machine learning", "Data-Science", "Generative-AI", "AI"].map((category) => (
-              <>
-                <ToggleButton
-                  key={category}
-                  active={toggle === category}
-                  onClick={() => handleToggle(category)}
-                >
-                  {category.toUpperCase()}
-                </ToggleButton>
-                <Divider />
-              </>
-            ))}
+            {["all", "Power BI", "machine learning", "Data-Science", "Generative-AI", "AI"].map(
+              (category) => (
+                <React.Fragment key={category}>
+                  <ToggleButton
+                    active={toggle === category}
+                    onClick={() => handleToggle(category)}
+                  >
+                    {category.toUpperCase()}
+                  </ToggleButton>
+                  <Divider />
+                </React.Fragment>
+              )
+            )}
           </ToggleButtonGroup>
         )}
 
@@ -209,18 +211,19 @@ const Projects = () => {
 
         {showToggleBelow && (
           <ToggleButtonGroup className="mobile-toggle-group">
-            {["all", "Power BI", "machine learning", "Data-Science", "Generative-AI", "AI"].map((category) => (
-              <>
-                <ToggleButton
-                  key={category}
-                  active={toggle === category}
-                  onClick={() => handleToggle(category)}
-                >
-                  {category.toUpperCase()}
-                </ToggleButton>
-                <Divider />
-              </>
-            ))}
+            {["all", "Power BI", "machine learning", "Data-Science", "Generative-AI", "AI"].map(
+              (category) => (
+                <React.Fragment key={category}>
+                  <ToggleButton
+                    active={toggle === category}
+                    onClick={() => handleToggle(category)}
+                  >
+                    {category.toUpperCase()}
+                  </ToggleButton>
+                  <Divider />
+                </React.Fragment>
+              )
+            )}
           </ToggleButtonGroup>
         )}
       </Wrapper>
