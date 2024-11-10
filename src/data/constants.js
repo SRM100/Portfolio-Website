@@ -242,7 +242,7 @@ export const education = [
     id: 0,
     school: "Parul University , Vadodara",
     date: "August 2024 - June 2026",
-    desc: "I am currently Pursuing a Master's degree in Robotics and Automation Engineering Parul Institute of Technology, Vadodara. ",
+    desc: "I am currently Pursuing a Master's degree in Robotics and Automation Engineering From Parul Institute of Technology, Vadodara. ",
     degree: "Master of Technology - MTech, Robotics and Automation Engineering",
   },
 
@@ -252,7 +252,7 @@ export const education = [
     school: "Parul University , Vadodara",
     date: "June 2020 - June 2024",
     grade: "First Class with Distinction",
-    desc: "I am completed a Bachelor's degree in Robotics and Automation Engineering Parul Institute of Technology, Vadodara. ",
+    desc: "I am completed a Bachelor's degree in Robotics and Automation Engineering From Parul Institute of Technology, Vadodara. ",
     degree: "Bachelor of Technology - BTech, Robotics and Automation Engineering",
   },
   {
@@ -266,7 +266,7 @@ export const education = [
   {
     id: 3,
     school: "Tree House High School, Vadodara",
-    date: "Apr 2017 - Apr 2019",
+    date: "Apr 2017 - Apr 2018",
     grade: "First Class",
     desc: "I completed my class 10 education at Tree House High School, Vadodara, where I studied Science with Computer Application.",
     degree: "CBSE(X), Science with Computer",
