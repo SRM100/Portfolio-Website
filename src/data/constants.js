@@ -76,11 +76,6 @@ export const skills = [
         image: "https://www.postgresql.org/media/img/about/press/elephant.png",
       },
       {
-        name: "MongoDB",
-        image:
-          "https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg",
-      },
-      {
         name: "Firebase",
         image: "https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg",
       },
@@ -172,7 +167,7 @@ export const skills = [
 export const experiences = [
   {
     id: 0,
-    img: "https://www.linkedin.com/in/sm980/overlay/1635536452522/single-media-viewer?type=IMAGE&profileId=ACoAAD18zzMBRZwNz4zraAcTrc1AYG_TEHe1ic8&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3BTjDN4k0hQPau5dvslAMRGA%3D%3D",
+    img: "/project_images/KPMG.jpeg",
     role: "Data Analytics Consulting Virtual Internship",
     company: "KPMG",
     date: "June 2023 - July 2023",
@@ -186,7 +181,7 @@ export const experiences = [
   },
   {
     id: 1,
-    img: "https://www.linkedin.com/in/sm980/overlay/1635536468024/single-media-viewer?type=IMAGE&profileId=ACoAAD18zzMBRZwNz4zraAcTrc1AYG_TEHe1ic8&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3BTjDN4k0hQPau5dvslAMRGA%3D%3D",
+    img: "/project_images/Cognizant.jpeg",
     role: "Artificial Intelligence Virtual Experience Program",
     company: "Cognizant",
     date: "July 2023 - August 2023",
@@ -201,7 +196,7 @@ export const experiences = [
   },
   {
     id: 2,
-    img: "https://www.linkedin.com/in/sm980/overlay/experience/2304561470/multiple-media-viewer?profileId=ACoAAD18zzMBRZwNz4zraAcTrc1AYG_TEHe1ic8&treasuryMediaId=1727113892520&type=IMAGE&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3BTjDN4k0hQPau5dvslAMRGA%3D%3D",
+    img: "/project_images/iNeuron.jpeg",
     role: "Machine Learning Intern",
     company: "iNeuron",
     date: "December 2023 - January 2024",
@@ -218,7 +213,7 @@ export const experiences = [
   },
   {
     id: 3,
-    img: "https://firebasestorage.googleapis.com/v0/b/flexi-coding.appspot.com/o/flipr.jpeg?alt=media&token=1d72532a-45eb-4c1a-a81a-c9bed9fec543",
+    img: "project_images/Blackcoffer.png",
     role: "Project Task Assignment",
     company: "Blackcoffer",
     date: "October 2024 - November 2024",
@@ -226,7 +221,7 @@ export const experiences = [
     skills: [
       "Python",
       "Streamlit",
-      "MeautifulSoup",
+      "BeautifulSoup",
       "Selenium",
       "HTML",
       "CSS",
@@ -242,8 +237,9 @@ export const education = [
     id: 0,
     school: "Parul University , Vadodara",
     date: "August 2024 - June 2026",
-    desc: "I am currently Pursuing a Master's degree in Robotics and Automation Engineering Parul Institute of Technology, Vadodara. ",
+    desc: "I am currently Pursuing a Master's degree in Robotics and Automation Engineering at Parul Institute of Technology, Vadodara. ",
     degree: "Master of Technology - MTech, Robotics and Automation Engineering",
+    img: "project_images/ParulUniversity.jpeg",
   },
 
 
@@ -252,8 +248,9 @@ export const education = [
     school: "Parul University , Vadodara",
     date: "June 2020 - June 2024",
     grade: "First Class with Distinction",
-    desc: "I am completed a Bachelor's degree in Robotics and Automation Engineering FroParul Institute of Technology, Vadodara. ",
+    desc: "I am completed a Bachelor's degree in Robotics and Automation Engineering at Parul Institute of Technology, Vadodara. ",
     degree: "Bachelor of Technology - BTech, Robotics and Automation Engineering",
+    img: "project_images/ParulUniversity.jpeg",
   },
   {
     id: 2,
@@ -262,6 +259,7 @@ export const education = [
     grade: "First Class",
     desc: "I completed my class 12  education at Ambe School, Vadodara, where I studied Science with Computer Science.",
     degree: "CBSE(XII), Science with Computer",
+    img: "project_images/AMBE.jpeg",
   },
   {
     id: 3,
@@ -270,6 +268,7 @@ export const education = [
     grade: "First Class",
     desc: "I completed my class 10 education at Tree House High School, Vadodara, where I studied Science with Computer Application.",
     degree: "CBSE(X), Science with Computer",
+    img: "project_images/tree.jpeg",
   },
 ];
 export const certificates = [
