@@ -5,7 +5,8 @@ import {
   Instagram,
   LinkedIn,
   Twitter,
-  GitHub
+  GitHub,
+  YouTube
 } from "@mui/icons-material";
 
 const lightning = keyframes`
@@ -136,6 +137,12 @@ const StyledGitHub = styled(GitHub)`
   }
 `;
 
+const StyledYouTube = styled(YouTube)`
+  &:hover {
+    animation: ${zoomEffect} 0.5s forwards;
+  }
+`;
+
 const Copyright = styled.p`
   margin-top: 1.5rem;
   font-size: 0.9rem;
@@ -186,6 +193,9 @@ const Footer = () => {
           </SocialMediaIcon>
           <SocialMediaIcon href={Bio.github} target="_blank" rel="noopener noreferrer">
             <StyledGitHub />
+          </SocialMediaIcon>
+          <SocialMediaIcon href="http://www.youtube.com/@ShashwatMishra-997" target="_blank" rel="noopener noreferrer">
+            <StyledYouTube />
           </SocialMediaIcon>
         </SocialMediaIcons>
         <audio id="myAudio" src="path/to/your/audio/file.mp3"></audio>
