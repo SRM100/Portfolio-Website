@@ -164,17 +164,37 @@ const Avatar = styled.img`
   border: 3px solid ${({ theme }) => theme.card};
 `;
 
+const ButtonGroup = styled.div`
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 16px;
+`;
+
 const Button = styled.a`
-  color: ${({ theme }) => theme.primary};
+  color: #fff;
   text-decoration: none;
   font-weight: 600;
   text-align: center;
-  transition: color 0.3s ease, text-shadow 0.3s ease;
+  transition: color 0.3s ease, text-shadow 0.3s ease, box-shadow 0.3s ease;
+  flex: 1;
+  padding: 8px 0;
+  border-radius: 6px;
+  ${({ primary }) => primary ? `
+    background-color: #FF5733; /* Color for "View Code" */
+  ` : `
+    background-color: #3498DB; /* Color for "View Demo" */
+  `}
 
-  /* Apply glow effect for button */
+  /* RGB border glow effect */
   &:hover {
-    color: ${({ theme }) => theme.secondary};
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 0, 0, 0.8);
+    box-shadow: 0 0 10px rgb(255, 0, 0), 0 0 20px rgb(0, 255, 0), 0 0 30px rgb(0, 0, 255);
+  }
+
+  /* Lightning effect on hover */
+  &:hover {
+    text-shadow: 0 0 5px #fff, 0 0 10px ${({ primary }) => primary ? "#FF5733" : "#3498DB"};
+    color: #fff;
   }
 `;
 
@@ -193,9 +213,18 @@ const ProjectCard = ({ project }) => {
           <Avatar key={index} src={member.img} />
         ))}
       </Members>
-      <Button href={project.github} target="_blank">
-        View Code
-      </Button>
+      <ButtonGroup>
+        {project.github && (
+          <Button href={project.github} target="_blank" primary>
+            View Code
+          </Button>
+        )}
+        {project.webapp && (
+          <Button href={project.webapp} target="_blank">
+            View Demo
+          </Button>
+        )}
+      </ButtonGroup>
     </Card>
   );
 };
