@@ -242,7 +242,7 @@ export const education = [
     id: 0,
     school: "Parul University , Vadodara",
     date: "August 2024 - June 2026",
-    desc: "I am currently Pursuing a Master's degree in Robotics and Automation Engineering at Parul Institute of Technology, Vadodara. ",
+    desc: "I am currently Pursuing a Master's degree in Robotics and Automation Engineering Parul Institute of Technology, Vadodara. ",
     degree: "Master of Technology - MTech, Robotics and Automation Engineering",
   },
 
@@ -252,7 +252,7 @@ export const education = [
     school: "Parul University , Vadodara",
     date: "June 2020 - June 2024",
     grade: "First Class with Distinction",
-    desc: "I am completed a Bachelor's degree in Robotics and Automation Engineering at Parul Institute of Technology, Vadodara. ",
+    desc: "I am completed a Bachelor's degree in Robotics and Automation Engineering FroParul Institute of Technology, Vadodara. ",
     degree: "Bachelor of Technology - BTech, Robotics and Automation Engineering",
   },
   {
@@ -266,7 +266,7 @@ export const education = [
   {
     id: 3,
     school: "Tree House High School, Vadodara",
-    date: "Apr 2017 - Apr 2018",
+    date: "Apr 2017 - Apr 2019",
     grade: "First Class",
     desc: "I completed my class 10 education at Tree House High School, Vadodara, where I studied Science with Computer Application.",
     degree: "CBSE(X), Science with Computer",
@@ -398,6 +398,7 @@ export const projects = [
     library: ["Power BI", "CSV", "Excel"],
     category: "Power BI",
     github: "https://github.com/SHASHWAT-MISHRA-997/SM-Ecommerce-Sales-PowerBi-Dashboard-Project",
+    webapp: "https://www.linkedin.com/posts/sm980_i-am-excited-to-share-my-recent-power-bi-activity-7207130769994035201-tKAI?utm_source=share&utm_medium=member_desktop"
   },
   {
     id: 1,
@@ -409,7 +410,7 @@ export const projects = [
     library: ["Python", "Pandas", "Numpy", "Matplotlib", "Seaborn", "Plotly", "Streamlit"],
     category: "Data-Science",
     github: "https://github.com/SHASHWAT-MISHRA-997/Whatsapp-Chat-Advanced-AI-Analyzer-Web-App",
-    webapp: "https://whatsapp-chat-advanced-ai-analyzer-web-app-shashwat-mishra-997.streamlit.app/",
+    webapp: "https://www.linkedin.com/posts/sm980_streamlit-python-nlp-activity-7228509845681803264-0wyR?utm_source=share&utm_medium=member_desktop",
   },
   {
     id: 2,
@@ -421,7 +422,7 @@ export const projects = [
     library: ["PyPDF2", "pytesseract", "pdfkit", "fitz", "cv2", "numpy", "streamlit", "os", "Pandas", "zlib"],
     category: "AI",
     github: "https://github.com/SHASHWAT-MISHRA-997/Productivity-Enhance-Multi-Tool--Web-App",
-    webapp: "https://enhance-multi-tool--web-app-shashwat-mishra.streamlit.app/",
+    webapp: "https://www.linkedin.com/posts/sm980_webdevelopment-productivity-automation-activity-7236406631683502081-ukMd?utm_source=share&utm_medium=member_desktop",
   },
   {
     id: 3,
@@ -433,7 +434,7 @@ export const projects = [
     library: ["base64", "Math", "datetime", "sklearn", "fpdf", "seaborn", "matplotlib", "streamlit"],
     category: "machine learning",
     github: "https://github.com/SHASHWAT-MISHRA-997/Agriculture_Commodity_Advance_Price_Predictor_Web_App",
-    webapp: "https://agriculture-commodity-advance-price-predictor-shashwat-mishra.streamlit.app/",
+    webapp: "https://www.linkedin.com/posts/sm980_working-video-of-ai-ml-based-commodity-activity-7238897697737322498-B9Pw?utm_source=share&utm_medium=member_desktop",
   },
   {
     id: 4,
@@ -445,7 +446,7 @@ export const projects = [
     library: ["htmlTemplates", "PyPdF2", "openai", "streamlit"],
     category: "Generative-AI",
     github: "https://github.com/SHASHWAT-MISHRA-997/Insight-PDF-Chat-Bot",
-    webapp: "https://insight-pdf-chat-bot-shashwat-mishra-997.streamlit.app/",
+    webapp: "https://www.linkedin.com/posts/sm980_excited-to-share-my-another-project-based-activity-7243682941816520704-IQwY?utm_source=share&utm_medium=member_desktop",
   },
   {
     id: 5,
@@ -473,5 +474,6 @@ export const projects = [
     library: ["Python", "deep_translator", "Transformers", "speech_recognition", "ollama", "gTTS"],
     category: "Generative-AI",
     github: "https://github.com/SHASHWAT-MISHRA-997/Advance-Chat-Assistant",
+    webapp: "https://www.linkedin.com/posts/sm980_excited-to-share-my-another-updated-advance-chat-assistant-activity-7251327470304448514-5stu?utm_source=share&utm_medium=member_desktop"
   },
 ];
