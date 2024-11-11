@@ -1,7 +1,29 @@
 import React, { useState } from "react";
 import { MenuRounded } from "@mui/icons-material";
-import styled, { useTheme } from "styled-components";
+import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
 import "@google/model-viewer";
+
+const lightTheme = {
+  bg: "#ffffff",
+  text_primary: "#000000",
+  primary: "#6200ea",
+  card_light: "#f5f5f5",
+};
+
+const darkTheme = {
+  bg: "#000000",
+  text_primary: "#ffffff",
+  primary: "#bb86fc",
+  card_light: "#333333",
+};
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    background-color: ${({ theme }) => theme.bg};
+    color: ${({ theme }) => theme.text_primary};
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+`;
 
 const Nav = styled.div`
   background-color: ${({ theme }) => theme.bg};
@@ -13,8 +35,19 @@ const Nav = styled.div`
   position: sticky;
   top: 0;
   z-index: 10;
-  color: white;
+  color: ${({ theme }) => theme.text_primary};
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  animation: lightning 2s infinite;
+
+  @keyframes lightning {
+    0%, 100% {
+      box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.5);
+    }
+    50% {
+      box-shadow: 0 0 20px 10px rgba(255, 255, 255, 1);
+    }
+  }
 `;
 
 const NavbarContainer = styled.div`
@@ -104,6 +137,23 @@ const NavLink = styled.a`
       box-shadow: 0 0 10px 5px rgba(255, 0, 255, 0.5);
     }
   }
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent 70%);
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease;
+    opacity: 0;
+  }
+
+  &:hover:before {
+    opacity: 1;
+  }
 `;
 
 const ButtonContainer = styled.div`
@@ -150,6 +200,20 @@ const GithubButton = styled.button`
   }
 `;
 
+const ThemeToggleButton = styled.button`
+  border: none;
+  background: none;
+  color: ${({ theme }) => theme.text_primary};
+  cursor: pointer;
+  font-size: 16px;
+  padding: 10px;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: ${({ theme }) => theme.primary};
+  }
+`;
+
 const MobileIcon = styled.div`
   display: none;
   @media screen and (max-width: 768px) {
@@ -179,8 +243,8 @@ const MobileMenu = styled.ul`
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isAudioStarted, setIsAudioStarted] = useState(false);
-  const theme = useTheme();
   const [currentSection, setCurrentSection] = useState('About');
+  const [theme, setTheme] = useState('light');
 
   const handleSectionChange = (section) => {
     setCurrentSection(section);
@@ -216,39 +280,34 @@ const Navbar = () => {
     bellAudio.play();
   };
 
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
+  };
+
   return (
-    <Nav>
-      <NavbarContainer>
-        <ModelViewerWrapper>
-          <model-viewer
-            src="models/desk.glb"
-            camera-controls
-            disable-pan
-            disable-zoom
-            interaction-prompt="none"
-            min-camera-orbit="auto 55deg auto"
-            max-camera-orbit="auto 92deg auto"
-            field-of-view="35.3deg"
-            style={{ width: "100%", height: "100%" }}
-          />
-        </ModelViewerWrapper>
+    <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+      <GlobalStyle />
+      <Nav>
+        <NavbarContainer>
+          <ModelViewerWrapper>
+            <model-viewer
+              src="models/desk.glb"
+              camera-controls
+              disable-pan
+              disable-zoom
+              interaction-prompt="none"
+              min-camera-orbit="auto 55deg auto"
+              max-camera-orbit="auto 92deg auto"
+              field-of-view="35.3deg"
+              style={{ width: "100%", height: "100%" }}
+            />
+          </ModelViewerWrapper>
 
-        <MobileIcon onClick={() => setIsOpen(!isOpen)}>
-          <MenuRounded style={{ color: "inherit" }} />
-        </MobileIcon>
+          <MobileIcon onClick={() => setIsOpen(!isOpen)}>
+            <MenuRounded style={{ color: "inherit" }} />
+          </MobileIcon>
 
-        <NavItems>
-          <NavLink onClick={() => handleSectionChange('About')} href="#About">About</NavLink>
-          <NavLink onClick={() => handleSectionChange('Skills')} href="#Skills">Skills</NavLink>
-          <NavLink onClick={() => handleSectionChange('Experience')} href="#Experience">Experience</NavLink>
-          <NavLink onClick={() => handleSectionChange('Projects')} href="#Projects">Projects</NavLink>
-          <NavLink onClick={() => handleSectionChange('Certificates')} href="#Certificates">Certificates</NavLink>
-          <NavLink onClick={() => handleSectionChange('Education')} href="#Education">Education</NavLink>
-          <NavLink onClick={() => handleSectionChange('Contact')} href="#Contact">Contact</NavLink>
-        </NavItems>
-
-        {isOpen && (
-          <MobileMenu isOpen={isOpen}>
+          <NavItems>
             <NavLink onClick={() => handleSectionChange('About')} href="#About">About</NavLink>
             <NavLink onClick={() => handleSectionChange('Skills')} href="#Skills">Skills</NavLink>
             <NavLink onClick={() => handleSectionChange('Experience')} href="#Experience">Experience</NavLink>
@@ -256,47 +315,62 @@ const Navbar = () => {
             <NavLink onClick={() => handleSectionChange('Certificates')} href="#Certificates">Certificates</NavLink>
             <NavLink onClick={() => handleSectionChange('Education')} href="#Education">Education</NavLink>
             <NavLink onClick={() => handleSectionChange('Contact')} href="#Contact">Contact</NavLink>
-          </MobileMenu>
-        )}
+          </NavItems>
 
-        <ButtonContainer>
-          {!isAudioStarted && (
-            <GithubButton
-              onClick={startAudioPlayback}
-              onMouseEnter={playBellAudio}
-            >
-              Start Audio
-            </GithubButton>
+          {isOpen && (
+            <MobileMenu isOpen={isOpen}>
+              <NavLink onClick={() => handleSectionChange('About')} href="#About">About</NavLink>
+              <NavLink onClick={() => handleSectionChange('Skills')} href="#Skills">Skills</NavLink>
+              <NavLink onClick={() => handleSectionChange('Experience')} href="#Experience">Experience</NavLink>
+              <NavLink onClick={() => handleSectionChange('Projects')} href="#Projects">Projects</NavLink>
+              <NavLink onClick={() => handleSectionChange('Certificates')} href="#Certificates">Certificates</NavLink>
+              <NavLink onClick={() => handleSectionChange('Education')} href="#Education">Education</NavLink>
+              <NavLink onClick={() => handleSectionChange('Contact')} href="#Contact">Contact</NavLink>
+            </MobileMenu>
           )}
-        </ButtonContainer>
-      </NavbarContainer>
 
-      <audio id="background-audio" loop>
-        <source src="/audio/background.mp3" type="audio/mpeg" />
-        <source src="/audio/background.ogg" type="audio/ogg" />
-        Your browser does not support the audio element.
-      </audio>
-      <audio id="hover-audio">
-        <source src="/audio/hover-sound.mp3" type="audio/mpeg" />
-        <source src="/audio/hover-sound.ogg" type="audio/ogg" />
-        Your browser does not support the audio element.
-      </audio>
-      <audio id="hover2-audio">
-        <source src="/audio/hover2.mp3" type="audio/mpeg" />
-        <source src="/audio/hover2.ogg" type="audio/ogg" />
-        Your browser does not support the audio element.
-      </audio>
-      <audio id="vangelis-audio" loop>
-        <source src="/audio/vangelis.mp3" type="audio/mpeg" />
-        <source src="/audio/vangelis.ogg" type="audio/ogg" />
-        Your browser does not support the audio element.
-      </audio>
-      <audio id="bell-audio">
-        <source src="/audio/bell2.mp3" type="audio/mpeg" />
-        <source src="/audio/bell2.ogg" type="audio/ogg" />
-        Your browser does not support the audio element.
-      </audio>
-    </Nav>
+          <ButtonContainer>
+            {!isAudioStarted && (
+              <GithubButton
+                onClick={startAudioPlayback}
+                onMouseEnter={playBellAudio}
+              >
+                Start Audio
+              </GithubButton>
+            )}
+            <ThemeToggleButton onClick={toggleTheme}>
+              Switch to {theme === 'light' ? 'dark' : 'light'} theme
+            </ThemeToggleButton>
+          </ButtonContainer>
+        </NavbarContainer>
+
+        <audio id="background-audio" loop>
+          <source src="/audio/background.mp3" type="audio/mpeg" />
+          <source src="/audio/background.ogg" type="audio/ogg" />
+          Your browser does not support the audio element.
+        </audio>
+        <audio id="hover-audio">
+          <source src="/audio/hover-sound.mp3" type="audio/mpeg" />
+          <source src="/audio/hover-sound.ogg" type="audio/ogg" />
+          Your browser does not support the audio element.
+        </audio>
+        <audio id="hover2-audio">
+          <source src="/audio/hover2.mp3" type="audio/mpeg" />
+          <source src="/audio/hover2.ogg" type="audio/ogg" />
+          Your browser does not support the audio element.
+        </audio>
+        <audio id="vangelis-audio" loop>
+          <source src="/audio/vangelis.mp3" type="audio/mpeg" />
+          <source src="/audio/vangelis.ogg" type="audio/ogg" />
+          Your browser does not support the audio element.
+        </audio>
+        <audio id="bell-audio">
+          <source src="/audio/bell2.mp3" type="audio/mpeg" />
+          <source src="/audio/bell2.ogg" type="audio/ogg" />
+          Your browser does not support the audio element.
+        </audio>
+      </Nav>
+    </ThemeProvider>
   );
 };
 
