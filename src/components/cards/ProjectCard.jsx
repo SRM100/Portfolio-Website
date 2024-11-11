@@ -30,7 +30,8 @@ const pulseEffect = keyframes`
 // Styled components
 const FullCard = styled.div`
   width: 100%;
-  max-width: 600px;
+  max-width: 330px;
+  height: auto;
   background-color: ${({ theme }) => theme.card || "#ffffff"};
   cursor: pointer;
   border-radius: 10px;
@@ -50,8 +51,9 @@ const FullCard = styled.div`
   }
 
   @media (max-width: 768px) {
-    max-width: 100%;
-    padding: 20px 15px;
+    padding: 16px;
+    width: 100%;
+    height: auto;
   }
 `;
 
@@ -76,31 +78,33 @@ const FullTags = styled.div`
   flex-wrap: wrap;
   gap: 8px;
   margin-top: 4px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `;
 
 const FullDetails = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 8px;
+
+  @media (max-width: 768px) {
+    padding-left: 0;
+  }
 `;
 
 const FullTitle = styled.div`
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
   color: ${({ theme }) => theme.text_secondary || "#333"};
-
-  @media (max-width: 768px) {
-    font-size: 20px;
-  }
 `;
 
 const FullDate = styled.div`
   font-size: 14px;
   color: ${({ theme }) => theme.text_secondary || "#666"};
-
-  @media (max-width: 768px) {
-    font-size: 12px;
-  }
 `;
 
 const FullDescription = styled.ul`
@@ -109,11 +113,7 @@ const FullDescription = styled.ul`
   line-height: 1.5;
   padding-left: 20px;
   list-style-type: disc;
-
-  @media (max-width: 768px) {
-    font-size: 14px;
-    padding-left: 15px;
-  }
+  width: 100%;
 `;
 
 const FullButtonGroup = styled.div`
@@ -121,6 +121,7 @@ const FullButtonGroup = styled.div`
   justify-content: space-between;
   gap: 12px;
   margin-top: 16px;
+  width: 100%;
 
   @media (max-width: 768px) {
     flex-direction: column;
