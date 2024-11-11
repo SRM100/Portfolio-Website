@@ -61,6 +61,11 @@ const NavbarContainer = styled.div`
   position: relative;
 `;
 
+const Logo = styled.img`
+  height: 40px;
+  cursor: pointer;
+`;
+
 const ModelViewerWrapper = styled.div`
   width: 240px;
   height: 240px;
@@ -200,24 +205,6 @@ const GithubButton = styled.button`
   }
 `;
 
-const ThemeToggleButton = styled.button`
-  border: none;
-  background: none;
-  color: ${({ theme }) => theme.text_primary};
-  cursor: pointer;
-  font-size: 16px;
-  padding: 10px;
-  transition: color 0.3s ease;
-
-  &:hover {
-    color: ${({ theme }) => theme.primary};
-  }
-
-  @media screen and (max-width: 768px) {
-    padding: 10px 20px;
-  }
-`;
-
 const MobileIcon = styled.div`
   display: none;
   @media screen and (max-width: 768px) {
@@ -246,46 +233,33 @@ const MobileMenu = styled.ul`
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isAudioStarted, setIsAudioStarted] = useState(false);
   const [currentSection, setCurrentSection] = useState('About');
   const [theme, setTheme] = useState('light');
+  const [isAudioStarted, setIsAudioStarted] = useState(false);
 
   const handleSectionChange = (section) => {
     setCurrentSection(section);
-    const hoverAudio = document.getElementById("hover-audio");
-    const hover2Audio = document.getElementById("hover2-audio");
-    const vangelisAudio = document.getElementById("vangelis-audio");
-
-    if (section !== 'About') {
-      hoverAudio.play();
-    }
+    setIsOpen(false);
 
     if (section === 'Projects' || section === 'Certificates') {
+      const vangelisAudio = document.getElementById("vangelis-audio");
       vangelisAudio.play();
     }
+  };
 
-    if (section === 'Skills' || section === 'Experience' || section === 'Projects' || section === 'Certificates' || section === 'Education' || section === 'Contact') {
-      hover2Audio.play();
-    }
-
-    // Close the mobile menu
-    setIsOpen(false);
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
   };
 
   const startAudioPlayback = () => {
     const backgroundAudio = document.getElementById("background-audio");
     backgroundAudio.play();
-    backgroundAudio.loop = true;
     setIsAudioStarted(true);
   };
 
-  const playBellAudio = () => {
-    const bellAudio = document.getElementById("bell-audio");
-    bellAudio.play();
-  };
-
-  const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
+  const playHoverAudio = () => {
+    const hoverAudio = document.getElementById("hover-audio");
+    hoverAudio.play();
   };
 
   return (
@@ -293,6 +267,11 @@ const Navbar = () => {
       <GlobalStyle />
       <Nav>
         <NavbarContainer>
+          <Logo
+            src={theme === 'light' ? '/project_images/LIGHT.jpg' : '/project_images/dark.png'}
+            alt="Logo"
+            onClick={toggleTheme}
+          />
           <ModelViewerWrapper>
             <model-viewer
               src="models/desk.glb"
@@ -312,39 +291,33 @@ const Navbar = () => {
           </MobileIcon>
 
           <NavItems>
-            <NavLink onClick={() => handleSectionChange('About')} href="#About">About</NavLink>
-            <NavLink onClick={() => handleSectionChange('Skills')} href="#Skills">Skills</NavLink>
-            <NavLink onClick={() => handleSectionChange('Experience')} href="#Experience">Experience</NavLink>
-            <NavLink onClick={() => handleSectionChange('Projects')} href="#Projects">Projects</NavLink>
-            <NavLink onClick={() => handleSectionChange('Certificates')} href="#Certificates">Certificates</NavLink>
-            <NavLink onClick={() => handleSectionChange('Education')} href="#Education">Education</NavLink>
-            <NavLink onClick={() => handleSectionChange('Contact')} href="#Contact">Contact</NavLink>
+            <NavLink onMouseEnter={playHoverAudio} onClick={() => handleSectionChange('About')} href="#About">About</NavLink>
+            <NavLink onMouseEnter={playHoverAudio} onClick={() => handleSectionChange('Skills')} href="#Skills">Skills</NavLink>
+            <NavLink onMouseEnter={playHoverAudio} onClick={() => handleSectionChange('Experience')} href="#Experience">Experience</NavLink>
+            <NavLink onMouseEnter={playHoverAudio} onClick={() => handleSectionChange('Projects')} href="#Projects">Projects</NavLink>
+            <NavLink onMouseEnter={playHoverAudio} onClick={() => handleSectionChange('Certificates')} href="#Certificates">Certificates</NavLink>
+            <NavLink onMouseEnter={playHoverAudio} onClick={() => handleSectionChange('Education')} href="#Education">Education</NavLink>
+            <NavLink onMouseEnter={playHoverAudio} onClick={() => handleSectionChange('Contact')} href="#Contact">Contact</NavLink>
           </NavItems>
 
           {isOpen && (
             <MobileMenu isOpen={isOpen}>
-              <NavLink onClick={() => handleSectionChange('About')} href="#About">About</NavLink>
-              <NavLink onClick={() => handleSectionChange('Skills')} href="#Skills">Skills</NavLink>
-              <NavLink onClick={() => handleSectionChange('Experience')} href="#Experience">Experience</NavLink>
-              <NavLink onClick={() => handleSectionChange('Projects')} href="#Projects">Projects</NavLink>
-              <NavLink onClick={() => handleSectionChange('Certificates')} href="#Certificates">Certificates</NavLink>
-              <NavLink onClick={() => handleSectionChange('Education')} href="#Education">Education</NavLink>
-              <NavLink onClick={() => handleSectionChange('Contact')} href="#Contact">Contact</NavLink>
+              <NavLink onMouseEnter={playHoverAudio} onClick={() => handleSectionChange('About')} href="#About">About</NavLink>
+              <NavLink onMouseEnter={playHoverAudio} onClick={() => handleSectionChange('Skills')} href="#Skills">Skills</NavLink>
+              <NavLink onMouseEnter={playHoverAudio} onClick={() => handleSectionChange('Experience')} href="#Experience">Experience</NavLink>
+              <NavLink onMouseEnter={playHoverAudio} onClick={() => handleSectionChange('Projects')} href="#Projects">Projects</NavLink>
+              <NavLink onMouseEnter={playHoverAudio} onClick={() => handleSectionChange('Certificates')} href="#Certificates">Certificates</NavLink>
+              <NavLink onMouseEnter={playHoverAudio} onClick={() => handleSectionChange('Education')} href="#Education">Education</NavLink>
+              <NavLink onMouseEnter={playHoverAudio} onClick={() => handleSectionChange('Contact')} href="#Contact">Contact</NavLink>
             </MobileMenu>
           )}
 
           <ButtonContainer>
             {!isAudioStarted && (
-              <GithubButton
-                onClick={startAudioPlayback}
-                onMouseEnter={playBellAudio}
-              >
+              <GithubButton onClick={startAudioPlayback}>
                 Start Audio
               </GithubButton>
             )}
-            <ThemeToggleButton onClick={toggleTheme}>
-              Switch to {theme === 'light' ? 'dark' : 'light'} theme
-            </ThemeToggleButton>
           </ButtonContainer>
         </NavbarContainer>
 
@@ -354,23 +327,13 @@ const Navbar = () => {
           Your browser does not support the audio element.
         </audio>
         <audio id="hover-audio">
-          <source src="/audio/hover-sound.mp3" type="audio/mpeg" />
-          <source src="/audio/hover-sound.ogg" type="audio/ogg" />
-          Your browser does not support the audio element.
-        </audio>
-        <audio id="hover2-audio">
           <source src="/audio/hover2.mp3" type="audio/mpeg" />
           <source src="/audio/hover2.ogg" type="audio/ogg" />
           Your browser does not support the audio element.
         </audio>
-        <audio id="vangelis-audio" loop>
+        <audio id="vangelis-audio">
           <source src="/audio/vangelis.mp3" type="audio/mpeg" />
           <source src="/audio/vangelis.ogg" type="audio/ogg" />
-          Your browser does not support the audio element.
-        </audio>
-        <audio id="bell-audio">
-          <source src="/audio/bell2.mp3" type="audio/mpeg" />
-          <source src="/audio/bell2.ogg" type="audio/ogg" />
           Your browser does not support the audio element.
         </audio>
       </Nav>
