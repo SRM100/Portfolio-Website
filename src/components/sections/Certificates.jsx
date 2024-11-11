@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { certificates } from "../../data/constants";
 import CertificateCard from "../cards/CertificateCard";
 
+const hoverSound = "/audio/hover1.mp3"; // Use the public URL path
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -157,6 +159,7 @@ const Certificates = () => {
   const handleToggle = (category) => {
     setToggle(category);
     setShowToggleBelow(true);
+    playHoverSound(); // Play sound on click
   };
 
   useEffect(() => {
@@ -173,6 +176,11 @@ const Certificates = () => {
   const filteredCertificates = toggle === "all"
     ? certificates
     : certificates.filter((certificate) => certificate.category.toLowerCase() === toggle.toLowerCase());
+
+  const playHoverSound = () => {
+    const audio = new Audio(hoverSound);
+    audio.play();
+  };
 
   return (
     <Container id="Certificates">
@@ -214,7 +222,10 @@ const Certificates = () => {
                 <ToggleButton
                   key={category}
                   active={toggle === category}
-                  onClick={() => handleToggle(category)}
+                  onClick={() => {
+                    handleToggle(category);
+                    playHoverSound(); // Add hover sound effect
+                  }}
                 >
                   {category.toUpperCase()}
                 </ToggleButton>
