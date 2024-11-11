@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { projects } from "../../data/constants";
 import ProjectCard from "../cards/ProjectCard";
 
+const hoverSound = "/audio/hover1.mp3"; // Use the public URL path
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -108,7 +110,7 @@ const ToggleButton = styled.div`
       border-color: yellow;
     }
     66% {
-      border-color: green;
+      border-color green;
     }
     100% {
       border-color: red;
@@ -157,6 +159,7 @@ const Projects = () => {
   const handleToggle = (category) => {
     setToggle(category);
     setShowToggleBelow(true);
+    playHoverSound(); // Play sound on click
   };
 
   useEffect(() => {
@@ -174,6 +177,11 @@ const Projects = () => {
     toggle === "all"
       ? projects
       : projects.filter((project) => project.category.toLowerCase() === toggle.toLowerCase());
+
+  const playHoverSound = () => {
+    const audio = new Audio(hoverSound);
+    audio.play();
+  };
 
   return (
     <Container id="Projects">
