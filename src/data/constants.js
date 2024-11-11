@@ -401,10 +401,12 @@ export const projects = [
     id: 0,
     title: "SM-Ecommerce-Sales-Power-BI-Dashboard",
     date: "June 2024 - July 2024",
-    description:
-      "Power BI dashboard project that provides insights into ecommerce sales data. The dashboard is designed to help ecommerce businesses track their sales performance, identify trends and make data-driven decisions.",
+    description: [
+      "Provides insights into ecommerce sales data.",
+      "Helps ecommerce businesses track their sales performance.",
+      "Enables identification of trends and data-driven decision-making."
+    ],
     image: "/project_images/DashBoard.png",
-    library: ["Power BI", "CSV", "Excel"],
     category: "Power BI",
     github: "https://github.com/SHASHWAT-MISHRA-997/SM-Ecommerce-Sales-PowerBi-Dashboard-Project",
     webapp: "https://www.linkedin.com/posts/sm980_i-am-excited-to-share-my-recent-power-bi-activity-7207130769994035201-tKAI?utm_source=share&utm_medium=member_desktop"
@@ -413,85 +415,88 @@ export const projects = [
     id: 1,
     title: "Whatsapp-Chat-Advanced-AI-Analyzer-Web-App",
     date: "June 2024 - July 2024",
-    description:
-      "This is a WhatsApp chat analysis web app built using Streamlit, a popular Python library for building data apps. The app allows you to upload a WhatsApp chat file (in .txt format) and analyzes the data to provide various insights.",
+    description: [
+      "WhatsApp chat analysis web app built using Streamlit.",
+      "Allows users to upload a WhatsApp chat file (in .txt format).",
+      "Provides various insights by analyzing the data."
+    ],
     image: "/project_images/Whatsapp-Chat-Advance-AI-Analyzer.png",
-    library: ["Python", "Pandas", "Numpy", "Matplotlib", "Seaborn", "Plotly", "Streamlit"],
     category: "Data-Science",
     github: "https://github.com/SHASHWAT-MISHRA-997/Whatsapp-Chat-Advanced-AI-Analyzer-Web-App",
-    webapp: "https://www.linkedin.com/posts/sm980_streamlit-python-nlp-activity-7228509845681803264-0wyR?utm_source=share&utm_medium=member_desktop",
+    webapp: "https://www.linkedin.com/posts/sm980_streamlit-python-nlp-activity-7228509845681803264-0wyR?utm_source=share&utm_medium=member_desktop"
   },
   {
     id: 2,
     title: "Productivity-Enhance-Multi-Tool-Web-App",
     date: "August 2024 - September 2024",
-    description:
-      "The Productivity-Enhance-Multi-Tool App is a powerful web application designed to streamline a wide range of digital tasks. Whether you need to manipulate PDFs, edit images, compress videos or convert various document formats this app provides a comprehensive suite of tools to enhance your productivity.",
+    description: [
+      "Web application designed to streamline various digital tasks.",
+      "Includes tools to manipulate PDFs, edit images, and compress videos.",
+      "Provides a comprehensive suite of tools to enhance productivity."
+    ],
     image: "/project_images/Enhance-Multi-Tool--Web-App.png",
-    library: ["PyPDF2", "pytesseract", "pdfkit", "fitz", "cv2", "numpy", "streamlit", "os", "Pandas", "zlib"],
     category: "AI",
     github: "https://github.com/SHASHWAT-MISHRA-997/Productivity-Enhance-Multi-Tool--Web-App",
-    webapp: "https://www.linkedin.com/posts/sm980_webdevelopment-productivity-automation-activity-7236406631683502081-ukMd?utm_source=share&utm_medium=member_desktop",
+    webapp: "https://www.linkedin.com/posts/sm980_webdevelopment-productivity-automation-activity-7236406631683502081-ukMd?utm_source=share&utm_medium=member_desktop"
   },
   {
     id: 3,
     title: "Agriculture_Commodit_Advance_Price_Predictor -WEB-APP",
     date: "August 2024 - September 2024",
-    description:
-      "Agriculture Commodity Price Predictor Web App! This tool provides advanced AI and ML-based predictions to help agricultural stakeholders such as farmers, businesses and government bodies analyze price trends and forecast future commodity prices in real-time.",
+    description: [
+      "AI and ML-based tool for agricultural commodity price predictions.",
+      "Helps farmers, businesses, and government bodies analyze price trends.",
+      "Provides real-time forecasts for future commodity prices."
+    ],
     image: "/project_images/Agriculture-Commodity-Advance-Price-Predictor.png",
-    library: ["base64", "Math", "datetime", "sklearn", "fpdf", "seaborn", "matplotlib", "streamlit"],
-    category: "machine learning",
+    category: "Machine Learning",
     github: "https://github.com/SHASHWAT-MISHRA-997/Agriculture_Commodity_Advance_Price_Predictor_Web_App",
-    webapp: "https://www.linkedin.com/posts/sm980_working-video-of-ai-ml-based-commodity-activity-7238897697737322498-B9Pw?utm_source=share&utm_medium=member_desktop",
+    webapp: "https://www.linkedin.com/posts/sm980_working-video-of-ai-ml-based-commodity-activity-7238897697737322498-B9Pw?utm_source=share&utm_medium=member_desktop"
   },
   {
     id: 4,
     title: "Document-Insight-Bot",
     date: "September 2024 - October 2024",
-    description:
-      "InsightBot an AI-powered tool that allows users to upload and interact with PDF documents through an intelligent chatbot. This application uses models like OpenAI GPT for answering questions based on the content of your PDFs and also offers additional analytical functionalities like word count, character count and sentiment analysis",
+    description: [
+      "AI-powered tool for uploading and interacting with PDF documents.",
+      "Uses OpenAI GPT for answering questions based on PDF content.",
+      "Includes analytical features like word count, character count, and sentiment analysis."
+    ],
     image: "/project_images/Insight-PDF-Chat-Bot.png",
-    library: ["htmlTemplates", "PyPdF2", "openai", "streamlit"],
     category: "Generative-AI",
     github: "https://github.com/SHASHWAT-MISHRA-997/Insight-PDF-Chat-Bot",
-    webapp: "https://www.linkedin.com/posts/sm980_excited-to-share-my-another-project-based-activity-7243682941816520704-IQwY?utm_source=share&utm_medium=member_desktop",
+    webapp: "https://www.linkedin.com/posts/sm980_excited-to-share-my-another-project-based-activity-7243682941816520704-IQwY?utm_source=share&utm_medium=member_desktop"
   },
   {
     id: 5,
     title: "Advance-Chat-Assistant",
     date: "Jan 2023 - Mar 2023",
-    description: `💬 AI-Powered Chatbot: Interact with an advanced AI assistant to get answers on various topics.
-    
-    📄 Document Analysis: Upload and analyze content from PDFs, Word, PPTX and Excel files,
-
-    🌐 Web Content Analyzer: Extract and interact with website content by providing the URL,
-
-    🎧 Video-to-Audio Extraction: Extract and transcribe audio from video files,
-
-    🎙️ Podcast Generator: Turn PDF content into an audio podcast for easy listening,
-
-    🌍 Multilingual Translation: Translate text and documents into multiple languages,
-
-    📊 Text-to-SQL Conversion: Convert natural language queries into SQL statements,
-
-    🧑‍🏫 Research Assistant: Analyze research documents and get insights,
-
-    🧠 Sentiment & Emotion Analysis: Evaluate the sentiment and emotions from text or transcribed audio.
-    `,
+    description: [
+      "AI-Powered Chatbot: Interact with an advanced AI assistant to get answers on various topics.",
+      "Document Analysis: Upload and analyze content from PDFs, Word, PPTX, and Excel files.",
+      "Web Content Analyzer: Extract and interact with website content by providing a URL.",
+      "Video-to-Audio Extraction: Extract and transcribe audio from video files.",
+      "Podcast Generator: Convert PDF content into an audio podcast for easy listening.",
+      "Multilingual Translation: Translate text and documents into multiple languages.",
+      "Text-to-SQL Conversion: Convert natural language queries into SQL statements.",
+      "Research Assistant: Analyze research documents for insights.",
+      "Sentiment & Emotion Analysis: Evaluate sentiment and emotions from text or transcribed audio."
+    ],
     image: "/project_images/Advance-Chat-Assistant.png",
-    library: ["Python", "deep_translator", "Transformers", "speech_recognition", "ollama", "gTTS"],
     category: "Generative-AI",
     github: "https://github.com/SHASHWAT-MISHRA-997/Advance-Chat-Assistant",
     webapp: "https://www.linkedin.com/posts/sm980_excited-to-share-my-another-updated-advance-chat-assistant-activity-7251327470304448514-5stu?utm_source=share&utm_medium=member_desktop"
   },
   {
     id: 6,
-    title: "Solar Operated Obsatacle Avoidance Agriculture Robot",
-    description:
-      "University Project: Solar Operated Obstacle Avoidance Robot is a robot that can be used to avoid obstacles in its path. The robot is powered by solar energy and uses ultrasonic sensors to detect obstacles and change its path accordingly.",
+    title: "Solar Operated Obstacle Avoidance Agriculture Robot",
+    date: "University Project",
+    description: [
+      "Solar-powered robot designed to avoid obstacles in its path.",
+      "Uses ultrasonic sensors to detect obstacles and adjust its path.",
+      "Applicable in agricultural fields for automated obstacle avoidance."
+    ],
     image: "/project_images/solar.jpg",
-    library: ["Python", "Flask", "HTML", "CSS", "JavaScript", "BeautifulSoup", "Selenium", "Docker", "AWS"],
     category: "Robotics",
     webapp: "https://youtube.com/shorts/Ld0-uoinTPg?si=DjwxLoF_Ct2MTc9G"
   }
