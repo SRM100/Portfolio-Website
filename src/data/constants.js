@@ -431,7 +431,7 @@ export const projects = [
     date: "August 2024 - September 2024",
     description: [
       "Web application designed to streamline various digital tasks.",
-      "Includes tools to manipulate PDFs, edit images, and compress videos.",
+      "Includes tools to manipulate PDFs, edit images and compress videos.",
       "Provides a comprehensive suite of tools to enhance productivity."
     ],
     image: "/project_images/Enhance-Multi-Tool--Web-App.png",
@@ -441,11 +441,11 @@ export const projects = [
   },
   {
     id: 3,
-    title: "Agriculture_Commodit_Advance_Price_Predictor -WEB-APP",
+    title: "Agriculture_Commodit_Advance_Price_Predictor-WEB-APP",
     date: "August 2024 - September 2024",
     description: [
       "AI and ML-based tool for agricultural commodity price predictions.",
-      "Helps farmers, businesses, and government bodies analyze price trends.",
+      "Helps farmers, businesses and government bodies analyze price trends.",
       "Provides real-time forecasts for future commodity prices."
     ],
     image: "/project_images/Agriculture-Commodity-Advance-Price-Predictor.png",
@@ -460,7 +460,7 @@ export const projects = [
     description: [
       "AI-powered tool for uploading and interacting with PDF documents.",
       "Uses OpenAI GPT for answering questions based on PDF content.",
-      "Includes analytical features like word count, character count, and sentiment analysis."
+      "Includes analytical features like word count, character count and sentiment analysis."
     ],
     image: "/project_images/Insight-PDF-Chat-Bot.png",
     category: "Generative-AI",
@@ -473,7 +473,7 @@ export const projects = [
     date: "Jan 2023 - Mar 2023",
     description: [
       "AI-Powered Chatbot: Interact with an advanced AI assistant to get answers on various topics.",
-      "Document Analysis: Upload and analyze content from PDFs, Word, PPTX, and Excel files.",
+      "Document Analysis: Upload and analyze content from PDFs, Word, PPTX and Excel files.",
       "Web Content Analyzer: Extract and interact with website content by providing a URL.",
       "Video-to-Audio Extraction: Extract and transcribe audio from video files.",
       "Podcast Generator: Convert PDF content into an audio podcast for easy listening.",
@@ -487,17 +487,29 @@ export const projects = [
     github: "https://github.com/SHASHWAT-MISHRA-997/Advance-Chat-Assistant",
     webapp: "https://www.linkedin.com/posts/sm980_excited-to-share-my-another-updated-advance-chat-assistant-activity-7251327470304448514-5stu?utm_source=share&utm_medium=member_desktop"
   },
-  {
-    id: 6,
-    title: "Solar Operated Obstacle Avoidance Agriculture Robot",
-    date: "University Project",
-    description: [
-      "Solar-powered robot designed to avoid obstacles in its path.",
-      "Uses ultrasonic sensors to detect obstacles and adjust its path.",
-      "Applicable in agricultural fields for automated obstacle avoidance."
-    ],
-    image: "/project_images/solar.jpg",
-    category: "Robotics",
-    webapp: "https://youtube.com/shorts/Ld0-uoinTPg?si=DjwxLoF_Ct2MTc9G"
-  }
+  
+    {
+      id: 6,
+      title: "Solar Operated Obstacle Avoidance Multi-Function Agriculture Robot",
+      date: "University Project",
+      description: [
+        `This project is my University Minor Project and focuses on an innovative, 
+         solar-powered robotic solution designed to assist in various agricultural tasks. 
+         The robot integrates multiple mechanisms, including grass-cutting, spraying, 
+         and obstacle-avoidance capabilities, all while being powered by solar energy. 
+         This combination makes it an environmentally sustainable, multi-functional 
+         agricultural aid.`,
+        
+        `Key Features and Functionalities:
+         - Grass-cutting, spraying and obstacle avoidance
+         - Powered by an onboard solar panel for uninterrupted performance
+         - Operable via mobile device for remote control`,
+         
+        `Conclusion: An eco-friendly, multi-functional robot for efficient agricultural management.`
+      ],
+      image: "/project_images/solar.jpg",
+      category: "Robotics",
+      webapp: "https://youtube.com/shorts/Ld0-uoinTPg?si=DjwxLoF_Ct2MTc9G"
+    }
+    
 ];
