@@ -122,7 +122,7 @@ export const skills = [
       {
         name: "Google Colab",
         image:
-          "https://assets.stickpng.com/images/63c2e4c9c4baad4ce22bf9ef.png",
+          "/project_images/colab.png",
       },
       {
         name: "Scikit-learn",
@@ -159,6 +159,16 @@ export const skills = [
         image:
           "https://s3-alpha.figma.com/hub/file/1481185752/fa4cd070-6a79-4e1b-b079-8b9b76408595-cover.png",
       },
+      {
+        name: "Vercel",
+        image:
+          "/project_images/vercel.png", 
+      },
+      {
+        name: "Canva",
+        image:
+          "/project_images/Canva.jpeg",
+      }
     ],
   },
 ];
@@ -475,4 +485,14 @@ export const projects = [
     github: "https://github.com/SHASHWAT-MISHRA-997/Advance-Chat-Assistant",
     webapp: "https://www.linkedin.com/posts/sm980_excited-to-share-my-another-updated-advance-chat-assistant-activity-7251327470304448514-5stu?utm_source=share&utm_medium=member_desktop"
   },
+  {
+    id: 6,
+    title: "Solar Operated Obsatacle Avoidance Agriculture Robot",
+    description:
+      "University Project: Solar Operated Obstacle Avoidance Robot is a robot that can be used to avoid obstacles in its path. The robot is powered by solar energy and uses ultrasonic sensors to detect obstacles and change its path accordingly.",
+    image: "/project_images/solar.jpg",
+    library: ["Python", "Flask", "HTML", "CSS", "JavaScript", "BeautifulSoup", "Selenium", "Docker", "AWS"],
+    category: "Robotics",
+    webapp: "https://youtube.com/shorts/Ld0-uoinTPg?si=DjwxLoF_Ct2MTc9G"
+  }
 ];
