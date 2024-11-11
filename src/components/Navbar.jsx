@@ -212,6 +212,10 @@ const ThemeToggleButton = styled.button`
   &:hover {
     color: ${({ theme }) => theme.primary};
   }
+
+  @media screen and (max-width: 768px) {
+    padding: 10px 20px;
+  }
 `;
 
 const MobileIcon = styled.div`
