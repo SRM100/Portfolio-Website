@@ -48,6 +48,11 @@ const FullCard = styled.div`
     transform: translateY(-10px);
     box-shadow: 0 0 50px rgba(0, 255, 255, 0.6);
   }
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+    padding: 20px 15px;
+  }
 `;
 
 // Adding animation effects to the image
@@ -83,11 +88,19 @@ const FullTitle = styled.div`
   font-size: 24px;
   font-weight: bold;
   color: ${({ theme }) => theme.text_secondary || "#333"};
+
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
 `;
 
 const FullDate = styled.div`
   font-size: 14px;
   color: ${({ theme }) => theme.text_secondary || "#666"};
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
 `;
 
 const FullDescription = styled.ul`
@@ -96,6 +109,11 @@ const FullDescription = styled.ul`
   line-height: 1.5;
   padding-left: 20px;
   list-style-type: disc;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+    padding-left: 15px;
+  }
 `;
 
 const FullButtonGroup = styled.div`
@@ -103,6 +121,11 @@ const FullButtonGroup = styled.div`
   justify-content: space-between;
   gap: 12px;
   margin-top: 16px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 8px;
+  }
 `;
 
 const FullButton = styled.a`
