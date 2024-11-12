@@ -198,7 +198,7 @@ const Contact = () => {
             speech.rate = 1;
             speech.volume = 1;
             const voices = window.speechSynthesis.getVoices();
-            const selectedVoice = voices.find(voice => voice.lang === 'en-IN') || voices[0];
+            const selectedVoice = voices.find(voice => voice.lang === 'en-IN' && voice.gender === 'male') || voices.find(voice => voice.gender === 'male') || voices[0];
             speech.voice = selectedVoice;
             window.speechSynthesis.speak(speech);
           };
