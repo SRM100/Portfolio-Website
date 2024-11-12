@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { Bio } from "../../data/constants";
 import Typewriter from "typewriter-effect";
 import HeroImg from "../../images/HeroImage.jpg";
@@ -12,6 +12,9 @@ import {
   headTextAnimation,
 } from "../../utils/motion";
 import StarCanvas from "../canvas/Stars";
+import LinkedInLogo from "../../images/linkedin.jpg";
+import YouTubeLogo from "../../images/Youtube.png";
+import InstagramLogo from "../../images/instagram.jpg";
 
 const HeroContainer = styled.div`
   display: flex;
@@ -30,6 +33,7 @@ const HeroContainer = styled.div`
 
   clip-path: polygon(0 0, 100% 0, 100% 100%, 70% 95%, 0 100%);
 `;
+
 const HeroInnerContainer = styled.div`
   position: relative;
   display: flex;
@@ -42,6 +46,7 @@ const HeroInnerContainer = styled.div`
     flex-direction: column;
   }
 `;
+
 const HeroLeftContainer = styled.div`
   width: 100%;
   order: 1;
@@ -54,6 +59,7 @@ const HeroLeftContainer = styled.div`
     align-items: center;
   }
 `;
+
 const HeroRightContainer = styled.div`
   width: 100%;
   order: 2;
@@ -130,7 +136,92 @@ const SubTitle = styled.div`
   }
 `;
 
-const ResumeButton = styled.a`
+const Img = styled.img`
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  max-width: 400px;
+  max-height: 400px;
+  border: 2px solid ${({ theme }) => theme.primary};
+
+  @media (max-width: 640px) {
+    max-width: 280px;
+    max-height: 280px;
+  }
+
+  &:hover {
+    box-shadow: 0 0 16px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 0, 0, 0.8);
+  }
+`;
+
+const HeroBg = styled.div`
+  position: absolute;
+  display: flex;
+  justify-content: end;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  max-width: 1360px;
+  overflow: hidden;
+  padding: 0 30px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+
+  @media (max-width: 960px) {
+    justify-content: center;
+    padding: 0 0px;
+  }
+`;
+
+const SocialIcons = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+`;
+
+const lightning = keyframes`
+  0% {
+    box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ff00ff, 0 0 40px #ff00ff, 0 0 50px #ff00ff, 0 0 60px #ff00ff, 0 0 70px #ff00ff;
+  }
+  100% {
+    box-shadow: 0 0 20px #fff, 0 0 30px #ff00ff, 0 0 40px #ff00ff, 0 0 50px #ff00ff, 0 0 60px #ff00ff, 0 0 70px #ff00ff, 0 0 80px #ff00ff;
+  }
+`;
+
+const rgb = keyframes`
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+`;
+
+const SocialIcon = styled.a`
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+
+  &:hover {
+    animation: ${lightning} 0.5s infinite alternate, ${rgb} 1s infinite linear;
+  }
+
+  &:hover img {
+    animation: ${rgb} 1s infinite linear;
+  }
+`;
+
+const Button = styled.a`
   -webkit-appearance: button;
   -moz-appearance: button;
   appearance: button;
@@ -161,57 +252,19 @@ const ResumeButton = styled.a`
   border-radius: 50px;
   font-weight: 600;
   font-size: 20px;
+  color: white;
 
-     &:hover {
-        transform: scale(1.05);
+  &:hover {
+    transform: scale(1.05);
     transition: all 0.4s ease-in-out;
-    box-shadow:  20px 20px 60px #1F2634,
+    box-shadow: 20px 20px 60px #1f2634, -20px -20px 60px #1f2634;
     filter: brightness(1);
-    }    
-    
-    
-    @media (max-width: 640px) {
-        padding: 12px 0;
-        font-size: 18px;
-    } 
-    color: white;
-`;
-
-const Img = styled.img`
-  border-radius: 50%;
-  width: 100%;
-  height: 100%;
-  max-width: 400px;
-  max-height: 400px;
-  border: 2px solid ${({ theme }) => theme.primary};
+    animation: ${lightning} 0.5s infinite alternate;
+  }
 
   @media (max-width: 640px) {
-    max-width: 280px;
-    max-height: 280px;
-  }
-`;
-
-const HeroBg = styled.div`
-  position: absolute;
-  display: flex;
-  justify-content: end;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  max-width: 1360px;
-  overflow: hidden;
-  padding: 0 30px;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translateX(-50%) translateY(-50%);
-  transform: translateX(-50%) translateY(-50%);
-
-  @media (max-width: 960px) {
-    justify-content: center;
-    padding: 0 0px;
+    padding: 12px 0;
+    font-size: 18px;
   }
 `;
 
@@ -249,15 +302,26 @@ const Hero = () => {
                 <SubTitle>{Bio.description}</SubTitle>
               </motion.div>
 
-              <ResumeButton href={Bio.resume} target="_blank">
+              <Button href={Bio.resume} target="_blank">
                 Check Resume
-              </ResumeButton>
+              </Button>
             </HeroLeftContainer>
             <HeroRightContainer>
               <motion.div {...headContentAnimation}>
                 <Tilt>
                   <Img src={HeroImg} alt="Shashwat Mishra" />
                 </Tilt>
+                <SocialIcons>
+                  <SocialIcon href={Bio.linkedin} target="_blank">
+                    <img src={LinkedInLogo} alt="LinkedIn" />
+                  </SocialIcon>
+                  <SocialIcon href={Bio.youtube} target="_blank">
+                    <img src={YouTubeLogo} alt="YouTube" />
+                  </SocialIcon>
+                  <SocialIcon href={Bio.insta} target="_blank">
+                    <img src={InstagramLogo} alt="Instagram" />
+                  </SocialIcon>
+                </SocialIcons>
               </motion.div>
             </HeroRightContainer>
           </HeroInnerContainer>
