@@ -485,7 +485,7 @@ export const projects = [
     image: "/project_images/Advance-Chat-Assistant.png",
     category: "Generative-AI",
     github: "https://github.com/SHASHWAT-MISHRA-997/Advance-Chat-Assistant",
-    webapp: "https://www.linkedin.com/posts/sm980_excited-to-share-my-another-updated-advance-chat-assistant-activity-7251327470304448514-5stu?utm_source=share&utm_medium=member_desktop"
+    webapp: "https://youtu.be/A2i7E-u_wKs?si=bBW4WhpRitD7JlNx"
   },
   
     {
