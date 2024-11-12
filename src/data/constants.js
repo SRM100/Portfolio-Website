@@ -8,7 +8,7 @@ export const Bio = {
     "Programmer",
   ],
   description:
-    "I am a motivated and versatile individual, always eager to take on new challenges. With a passion for learning I am dedicated to delivering high-quality results. With a positive attitude and a growth mindset, I am ready to make a meaningful contribution and achieve great things.",
+    "I am Completed My BTech in Robotics and Automation. A motivated and versatile individual, always eager to take on new challenges. With a passion for learning I am dedicated to delivering high-quality results. With a positive attitude and a growth mindset, I am ready to make a meaningful contribution and achieve great things.",
   
   resume:
     "https://drive.google.com/file/d/12Ab6m0w2t8BbOcn7P0jOITW5yERlyvtn/view?usp=sharing",
@@ -274,7 +274,7 @@ export const education = [
   {
     id: 3,
     school: "Tree House High School, Vadodara",
-    date: "Apr 2017 - Apr 2019",
+    date: "Apr 2017 - Apr 2018",
     grade: "First Class",
     desc: "I completed my class 10 education at Tree House High School, Vadodara, where I studied Science with Computer Application.",
     degree: "CBSE(X), Science with Computer",
