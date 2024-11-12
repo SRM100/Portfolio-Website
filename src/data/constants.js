@@ -13,9 +13,9 @@ export const Bio = {
   resume:
     "https://drive.google.com/file/d/12Ab6m0w2t8BbOcn7P0jOITW5yERlyvtn/view?usp=sharing",
   linkedin: "https://www.linkedin.com/in/sm980/",
-  twitter: "https://x.com/SHASHWATMI35662",
   insta: "https://www.instagram.com/sm_king997/",
-  github: "https://github.com/SHASHWAT-MISHRA-997",
+  youtube: "https://youtube.com/@shashwatmishra-997?si=1tL9RdAEs6byj8_f",
+  
 
 };
 
