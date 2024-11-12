@@ -470,7 +470,7 @@ export const projects = [
   {
     id: 5,
     title: "Advance-Chat-Assistant",
-    date: "Jan 2023 - Mar 2023",
+    date: "September 2024 - October 2024",
     description: [
       "AI-Powered Chatbot: Interact with an advanced AI assistant to get answers on various topics.",
       "Document Analysis: Upload and analyze content from PDFs, Word, PPTX and Excel files.",
