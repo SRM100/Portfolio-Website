@@ -11,7 +11,7 @@ export const Bio = {
     "I am Completed My BTech in Robotics and Automation. A motivated and versatile individual, always eager to take on new challenges. With a passion for learning I am dedicated to delivering high-quality results. With a positive attitude and a growth mindset, I am ready to make a meaningful contribution and achieve great things.",
   
   resume:
-    "https://drive.google.com/file/d/12Ab6m0w2t8BbOcn7P0jOITW5yERlyvtn/view?usp=sharing",
+    "https://drive.google.com/file/d/1A1rGPSw0zjk44NIKMX5X726h_NNuc0Yh/view?usp=sharing",
   linkedin: "https://www.linkedin.com/in/sm980/",
   insta: "https://www.instagram.com/sm_king997/",
   youtube: "https://youtube.com/@shashwatmishra-997?si=1tL9RdAEs6byj8_f",
