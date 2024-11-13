@@ -423,7 +423,7 @@ export const projects = [
     image: "/project_images/Whatsapp-Chat-Advance-AI-Analyzer.png",
     category: "Data-Science",
     github: "https://github.com/SHASHWAT-MISHRA-997/Whatsapp-Chat-Advanced-AI-Analyzer-Web-App",
-    webapp: "https://www.linkedin.com/posts/sm980_streamlit-python-nlp-activity-7228509845681803264-0wyR?utm_source=share&utm_medium=member_desktop"
+    webapp: "https://youtu.be/1nuEknaD528?si=9MsF5u8c3EChdeeT"
   },
   {
     id: 2,
