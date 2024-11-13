@@ -439,11 +439,12 @@ export const projects = [
     github: "https://github.com/SHASHWAT-MISHRA-997/Productivity-Enhance-Multi-Tool--Web-App",
     webapp: "https://www.linkedin.com/posts/sm980_webdevelopment-productivity-automation-activity-7236406631683502081-ukMd?utm_source=share&utm_medium=member_desktop"
   },
-  {
+{
     id: 3,
-    title: "Agriculture_Commodit_Advance_Price_Predictor-WEB-APP",
+    title: "Agriculture_Commodity Advance_Price_Predictor-Web-App",
     date: "August 2024 - September 2024",
     description: [
+      "Smart-India-Hackathon-2024 (SIH-2024) Problem Statement.",
       "AI and ML-based tool for agricultural commodity price predictions.",
       "Helps farmers, businesses and government bodies analyze price trends.",
       "Provides real-time forecasts for future commodity prices."
